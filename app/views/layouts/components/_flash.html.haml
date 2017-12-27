@@ -1,0 +1,3 @@
+-flash.each do |type, msg|
+  -if msg
+    .alert-data-container{'data-message' => msg, 'data-type' => (type == 'alert' ? 'error' : 'success')}

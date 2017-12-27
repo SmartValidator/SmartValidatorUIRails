@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title=full_title(yield(:subtitle))
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application', "controllers/#{controller_path.split('/')[0]}"
+    = csrf_meta_tags
+  %body
+    .container
+      =render 'layouts/components/flash'
+      =yield
+    =render 'layouts/components/js_data'

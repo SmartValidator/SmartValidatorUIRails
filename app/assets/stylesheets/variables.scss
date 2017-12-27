@@ -1,0 +1,38 @@
+/* Color definitions */
+$color-main: #5293D1;
+$color-secondary: #F7711E;
+$color-secondary-border: #c6631e;
+
+@font-face {
+  font-family: 'LatoRegular';
+  font-weight: 300;
+  src: url('/assets/Lato-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LatoRegular';
+  font-weight: 400;
+  src: url('/assets/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'LatoRegular';
+  font-weight: 600;
+  src: url('/assets/Lato-Bold.ttf') format('truetype');
+}
+
+/* ---------------------------------------------- */
+/* Bootstrap overwriting */
+
+/* We need the breakpoints here, but because we're using
+   the compiled bootstrap version, we don't have access here.
+   Therefore, we define the breakpoints here.
+   The "original" definition can be found in the _variables.scss
+   file in the Bootstrap directory. */
+$grid-breakpoints: (
+        xs: 0,
+        sm: 544px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+);
