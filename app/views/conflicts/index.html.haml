@@ -1,6 +1,22 @@
 -provide(:subtitle,I18n.t('views.conflicts.index.title'))
 
-%section#conflicts_index
-  .row
-    .col
-      %h1=I18n.t('views.conflicts.index.title')
+#conflicts_index
+  %section
+    .row
+      .col
+        %h1=I18n.t('views.conflicts.index.title')
+  %section
+    .row
+      .col-12.col-lg-6
+        %h3=I18n.t('views.conflicts.index.last_conflicts.title')
+      .col-12.col-lg-6
+        %section
+          .row
+            .col
+              %h3=I18n.t('views.conflicts.index.filtered.title')
+              =render 'shared/validated_roas_table', id: 'filtered-validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json, scope: :filtered)
+        %section
+          .row
+            .col
+              %h3=I18n.t('views.conflicts.index.whitelisted.title')
+              =render 'shared/validated_roas_table', id: 'whitelisted-validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json, scope: :whitelisted)

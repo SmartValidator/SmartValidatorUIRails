@@ -35,3 +35,44 @@ root.show_ok = (msg) ->
 root.show_info = (msg) ->
   show_noty msg, 'info', 5000
   return
+
+root.announcement_table = (table_obj) ->
+  table_obj.on('xhr.dt', (e, settings, json, xhr) ->
+    if xhr.status != 200
+      location.href = $('#js-data').data('login-path')
+      $(this).stopPropagation()
+      return false
+    return true
+  ).dataTable(
+    processing: true
+    serverSide: true
+    ajax: table_obj.data('source')
+    pagingType: 'full_numbers'
+    columns: [
+      {data: 'id'}
+      {data: 'asn'}
+      {data: 'prefix'}
+    ]
+  ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
+
+
+root.validated_roas_table = (table_obj) ->
+  table_obj.on('xhr.dt', (e, settings, json, xhr) ->
+    if xhr.status != 200
+      location.href = $('#js-data').data('login-path')
+      $(this).stopPropagation()
+      return false
+    return true
+  ).dataTable(
+    processing: true
+    serverSide: true
+    ajax: table_obj.data('source')
+    pagingType: 'full_numbers'
+    columns: [
+      {data: 'id'}
+      {data: 'asn'}
+      {data: 'prefix'}
+      {data: 'max_length'}
+    ]
+  ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
+

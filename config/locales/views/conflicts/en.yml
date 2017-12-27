@@ -3,3 +3,9 @@ en:
     conflicts:
       index:
         title: 'Conflicts'
+        last_conflicts:
+          title: 'Last conflicts'
+        filtered:
+          title: 'Filtered announcements'
+        whitelisted:
+          title: 'Whitelisted announcements'

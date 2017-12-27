@@ -23,7 +23,13 @@ class SmartValidatorDb::ValidatedRoaDatatable < AjaxDatatablesRails::Base
   private
 
   def get_raw_records
-    SmartValidatorDb::ValidatedRoa.all
+    q = SmartValidatorDb::ValidatedRoa.all
+
+    # Add scopes
+    q = q.filtered if params[:scope] == 'filtered'
+    q = q.whitelisted if params[:scope] == 'whitelisted'
+
+    q
   end
 
   # ==== These methods represent the basic operations to perform on records
