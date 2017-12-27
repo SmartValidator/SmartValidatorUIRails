@@ -1,0 +1,13 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        validated_roas_verified_announcement:
+          prefix: 'Prefix'
+          route_validity: 'Route validity'
+    models:
+      smart_validator_db:
+        validated_roas_verified_announcement:
+          one: 'validated_roas_verified_announcement'
+          other: 'validated_roas_verified_announcements'

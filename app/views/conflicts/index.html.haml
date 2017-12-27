@@ -9,6 +9,12 @@
     .row
       .col-12.col-lg-6
         %h3=I18n.t('views.conflicts.index.last_conflicts.title')
+        %table#validated-roas-verified-announcements.table.table-striped{'data-source': smart_validator_db_validated_roas_verified_announcements_path(format: :json) }
+          %thead
+            %tr
+              %th=I18n.t('general.id')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roas_verified_announcement.route_validity')
+          %tbody
       .col-12.col-lg-6
         %section
           .row

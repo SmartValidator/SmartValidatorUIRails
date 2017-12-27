@@ -17,4 +17,3 @@ class SmartValidatorDb::ValidatedRoasController < ApplicationController
 
 end
 
-
