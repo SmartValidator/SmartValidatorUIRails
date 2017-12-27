@@ -1,5 +1,10 @@
 @import "variables";
 
 body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.navbar-brand,
+h1,h2,h3,h4,h5,h6 {
   font-family: Montserrat, 'Helvetica Neue', sans-serif;
 }

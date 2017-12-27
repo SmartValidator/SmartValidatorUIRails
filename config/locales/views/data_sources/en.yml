@@ -1,0 +1,5 @@
+en:
+  views:
+    data_sources:
+      index:
+        title: 'Data sources'

@@ -2,4 +2,4 @@ en:
   views:
     pages:
       index:
-        title: '%{platform}'
+        title: 'Welcome to the SmartValidator UI'

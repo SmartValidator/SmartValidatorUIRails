@@ -3,4 +3,4 @@
 %section#pages_index
   .row
     .col
-      %h1 bla
+      %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])

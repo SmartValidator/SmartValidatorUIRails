@@ -8,6 +8,7 @@
     = javascript_include_tag 'application', "controllers/#{controller_path.split('/')[0]}"
     = csrf_meta_tags
   %body
+    =render 'layouts/components/header'
     .container
       =render 'layouts/components/flash'
       =yield
