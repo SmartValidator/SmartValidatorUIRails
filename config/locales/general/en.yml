@@ -2,3 +2,6 @@ en:
   general:
     not_found: 'Not found'
     js_error: 'JS error'
+    logout: 'Logout'
+    login: 'Login'
+    register: 'Register'

@@ -1,0 +1,45 @@
+@import "variables";
+
+.devise-box-center {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#devise-box {
+  label {
+    margin-bottom: 0.25rem;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  .inline-field {
+    input[type=radio] {
+      width: 15px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+  }
+
+  input[type=text], input[type=password], input[type=email] {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+#devise-links {
+  margin-top: 10px;
+}
+
+#error_explanation {
+  h2 {
+    font-size: 1.1em;
+  }
+  border: 1px solid #a00;
+  padding: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}

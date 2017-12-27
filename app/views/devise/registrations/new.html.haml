@@ -1,0 +1,18 @@
+-provide(:subtitle,I18n.t('general.register'))
+
+#devise-box.devise-box-center
+  %h2=I18n.t('general.register')
+  =devise_error_messages!
+  =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, :placeholder => I18n.t('activerecord.attributes.user.email')
+    .field
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.password_with_length', :count => Rails.configuration.global[:users][:model][:password][:minimum_length].to_s), :pattern => '.{' + @minimum_password_length.to_s + ',}'
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.password_confirmation'), :pattern => '.{' + Rails.configuration.global[:users][:model][:password][:minimum_length].to_s + ',}'
+    .actions.top-margin-1
+      = f.submit I18n.t('general.register'), :class => 'btn btn-primary', :id => 'register-button'
+  = render "devise/shared/links"

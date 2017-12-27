@@ -1,0 +1,11 @@
+en:
+  views:
+    errors:
+      general:
+        sorry: 'Please contact us, if you this this is an error: %{email}'
+      not_found:
+        title: 'Not found'
+      forbidden:
+        title: 'Access denied'
+      internal_server_error:
+        title: 'Internal server error'

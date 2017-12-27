@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   # GET /
   def index
+    authorize self
   end
 
 end

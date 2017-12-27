@@ -1,0 +1,28 @@
+-provide(:subtitle,I18n.t('devise_own.update_user'))
+
+#devise-box.devise-box-center
+  =button_to account_path, :method => :get, :class => 'btn btn-primary margin-bottom-2' do
+    .fa.fa-arrow-left
+    =I18n.t('general.back').capitalize
+  %h2=I18n.t('devise_own.update_user')
+  =devise_error_messages!
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, :placeholder => I18n.t('activerecord.attributes.user.email')
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        =I18n.t('devise_own.awaiting_email_confirmation', :email => resource.unconfirmed_email)
+    .field
+      = f.label :password, I18n.t('devise_own.new_password')
+      = f.password_field :password, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.password_with_length', :count => Rails.configuration.global[:users][:model][:password][:minimum_length].to_s), :pattern => '.{' + Rails.configuration.global[:users][:model][:password][:minimum_length].to_s + ',}'
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.password_confirmation'), :pattern => '.{' + Rails.configuration.global[:users][:model][:password][:minimum_length].to_s + ',}'
+      %p.small=I18n.t('devise_own.update_password_hint')
+    .field
+      = f.label :current_password
+      = f.password_field :current_password, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.current_password')
+      %p.small=I18n.t('devise_own.current_passwort_hint')
+    .actions
+      = f.submit I18n.t('devise_own.update_user'), :class => 'btn btn-primary'

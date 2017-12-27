@@ -1,0 +1,16 @@
+-provide(:subtitle,I18n.t('general.login'))
+
+#devise-box.devise-box-center
+  %h2
+    =I18n.t('general.login')
+  =devise_error_messages!
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, :placeholder => I18n.t('activerecord.attributes.user.email')
+    .field
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", :placeholder => I18n.t('activerecord.attributes.user.password_with_length', :count => Rails.configuration.global[:users][:model][:password][:minimum_length].to_s), :pattern => '.{' + Rails.configuration.global[:users][:model][:password][:minimum_length].to_s + ',}'
+    .actions
+      = f.submit I18n.t('general.login'), :class => 'btn btn-primary', :id => 'login-button'
+  = render "devise/shared/links"

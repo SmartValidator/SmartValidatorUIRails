@@ -1,0 +1,15 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Password'
+        password_with_length: 'Password (%{count} characters minimum)'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+        confirmation_token: 'Confirmation code'
+    models:
+      user:
+        one: 'User'
+        other: 'Users'

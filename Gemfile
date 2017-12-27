@@ -46,6 +46,12 @@ gem 'binding_of_caller'
 # memory profiling
 gem 'rack-mini-profiler'
 
+# Authentification
+gem 'devise'
+
+# Authorization
+gem 'pundit'
+
 group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'

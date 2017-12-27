@@ -1,0 +1,13 @@
+en:
+  devise_own:
+    password_length_hint: ' (%{count} characters minimum)'
+    no_confirmation_email: 'No confirmation email received?'
+    forgot_password:
+      title: 'Forget password?'
+      text: 'Reset password'
+    new_password: 'Reset password'
+    resend_confirmation_email: 'Re-send activation email'
+    update_user: 'Change credentials'
+    awaiting_email_confirmation: 'Email confirmation for %{email} is still pending.'
+    update_password_hint: 'Please enter a new password here only if you want to change it.'
+    current_passwort_hint: 'You have to enter your current password in order to verify your changes.'

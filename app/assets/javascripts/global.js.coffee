@@ -3,8 +3,9 @@ root = exports ? this
 $ ->
   $('.alert-data-container').each (i, obj) ->
     show_noty(
-      $(this).data('message'),
+      $(this).data('message')
       $(this).data('type'),
+      5000
     )
     return
 
@@ -17,20 +18,20 @@ show_noty = (msg, type, timeout) ->
     text: msg
     type: type
     theme: 'bootstrap-v4'
-    timeout: timeout
     layout: 'topCenter'
+    timeout: timeout
     maxVisible: 3
   ).show()
   return
 
 root.show_error = (msg) ->
-  show_noty msg, 'error', 4000
+  show_noty msg, 'error', 7000
   return
 
 root.show_ok = (msg) ->
-  show_noty msg, 'info', 4000
+  show_noty msg, 'success', 5000
   return
 
-root.show_notice = (msg) ->
-  show_noty msg, 'info', 10000
+root.show_info = (msg) ->
+  show_noty msg, 'info', 5000
   return

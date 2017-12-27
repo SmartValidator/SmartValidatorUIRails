@@ -1,0 +1,13 @@
+-provide(:subtitle,I18n.t('devise_own.forgot_password.title'))
+
+#devise-box.devise-box-center
+  %h2
+    =I18n.t('devise_own.forgot_password.title')
+  =devise_error_messages!
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, :placeholder => I18n.t('activerecord.attributes.user.email')
+    .actions
+      = f.submit I18n.t('devise_own.forgot_password.text'), :class => 'btn btn-primary'
+  = render "devise/shared/links"
