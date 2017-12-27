@@ -1,24 +1,9 @@
-/* Color definitions */
-$color-main: #5293D1;
-$color-secondary: #F7711E;
-$color-secondary-border: #c6631e;
 
 @font-face {
-  font-family: 'LatoRegular';
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 300;
-  src: url('/assets/Lato-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'LatoRegular';
-  font-weight: 400;
-  src: url('/assets/Lato-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'LatoRegular';
-  font-weight: 600;
-  src: url('/assets/Lato-Bold.ttf') format('truetype');
+  src: url('/assets/Montserrat-SemiBold.ttf') format('truetype');
 }
 
 /* ---------------------------------------------- */
