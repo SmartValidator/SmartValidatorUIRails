@@ -1,15 +1,34 @@
 -provide(:subtitle,I18n.t('views.data_sources.index.title'))
 
-%section#data_sources_index
-  .row
-    .col
-      %h1=I18n.t('views.data_sources.index.title')
-  .row
-    .col
-      %table#announcements-table{'data-source': smart_validator_db_announcements_path(format: :json) }
-        %thead
-          %tr
-            %th=I18n.t('general.id')
-            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
-            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
-        %tbody
+#data_sources_index
+  %section
+    .row
+      .col
+        %h1=I18n.t('views.data_sources.index.title')
+  %section
+    .row
+      .col-12.col-lg-3.margin-bottom-2
+        #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}
+          %a#v-pills-announcements-tab.nav-link.active{"aria-controls" => "v-pills-announcements", "aria-selected" => "true", "data-toggle" => "pill", :href => "#v-pills-announcements", :role => "tab"}
+            =I18n.t('activerecord.models.smart_validator_db.announcement.other')
+          %a#v-pills-roas-tab.nav-link{"aria-controls" => "v-pills-roas", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-roas", :role => "tab"}
+            =I18n.t('activerecord.models.smart_validator_db.validated_roa.other')
+      .col-12.col-lg-9
+        #v-pills-tabContent.tab-content
+          #v-pills-announcements.tab-pane.fade.show.active{"aria-labelledby" => "v-pills-announcements-tab", :role => "tabpanel"}
+            %table.table.table-striped#announcements-table{'data-source': smart_validator_db_announcements_path(format: :json) }
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+              %tbody
+          #v-pills-roas.tab-pane.fade{"aria-labelledby" => "v-pills-roas-tab", :role => "tabpanel"}
+            %table.table.table-striped#validated-roas-table{'data-source': smart_validator_db_validated_roas_path(format: :json) }
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.asn')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.prefix')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.max_length')
+              %tbody

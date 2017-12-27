@@ -1,0 +1,16 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        validated_roa:
+          asn: 'ASN'
+          prefix: 'Prefix'
+          max_length: 'Max length'
+          filtered: 'Filtered'
+          whitelisted: 'Whitelisted'
+    models:
+      smart_validator_db:
+        validated_roa:
+          one: 'Validated ROA'
+          other: 'Validated ROAs'
