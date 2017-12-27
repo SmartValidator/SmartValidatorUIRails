@@ -52,6 +52,9 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+# Ajax datatables integration
+gem 'ajax-datatables-rails'
+
 group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'

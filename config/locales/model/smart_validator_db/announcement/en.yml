@@ -1,0 +1,13 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        announcement:
+          asn: 'ASN'
+          prefix: 'Prefix'
+    models:
+      smart_validator_db:
+        announcement:
+          one: 'Announcement'
+          other: 'Announcements'

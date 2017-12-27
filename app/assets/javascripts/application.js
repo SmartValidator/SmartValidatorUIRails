@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
-//= require noty.min.js
-//= require chosen.jquery.min.js
+//= require noty.min
+//= require datatables.min
+//= require chosen.jquery.min
 //= require global.js

@@ -4,3 +4,12 @@
   .row
     .col
       %h1=I18n.t('views.data_sources.index.title')
+  .row
+    .col
+      %table#announcements-table{'data-source': smart_validator_db_announcements_path(format: :json) }
+        %thead
+          %tr
+            %th=I18n.t('general.id')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+        %tbody

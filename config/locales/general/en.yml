@@ -5,3 +5,4 @@ en:
     logout: 'Logout'
     login: 'Login'
     register: 'Register'
+    id: 'ID'
