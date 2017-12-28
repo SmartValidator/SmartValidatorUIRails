@@ -5,8 +5,8 @@ body {
 }
 
 .navbar-brand,
-h1,h2,h3,h4,h5,h6 {
-  font-family: Montserrat, 'Helvetica Neue', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
 .margin-top-2 {
@@ -22,3 +22,53 @@ section {
   margin-bottom: 1em;
 }
 
+.tab-pane > section {
+  margin: 0;
+}
+
+.noty_type__alert {
+  background-color: #f8d7da !important;
+}
+
+input[type=radio].css-checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+  padding-left: 26px;
+  height: 23px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 0 2px;
+  vertical-align: middle;
+  cursor: pointer;
+
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+  background-position: 0 -21px;
+}
+
+label.css-label {
+  background-image: url('/assets/csscheckbox.png');
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+span.key-hint {
+  color: #ddd;
+  font-size: 0.9em;
+  float: right;
+}

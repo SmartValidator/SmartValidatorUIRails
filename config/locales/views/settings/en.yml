@@ -3,3 +3,15 @@ en:
     settings:
       index:
         title: 'Settings'
+        overview:
+          title: 'Overview'
+          account: 'Your are logged in as %{email}.'
+          account_edit_link: 'Change credentials'
+        conflict_handler:
+          title: 'Conflict Handler'
+          heuristics:
+            title: 'Heuristics'
+            intro: 'Defines how the conflict resolver should handle conflicts.'
+            whitelist_after_n_days:
+              before: 'Whitelist conflicts after'
+              after: 'days'

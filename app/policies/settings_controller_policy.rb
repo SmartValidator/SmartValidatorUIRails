@@ -12,4 +12,8 @@ class SettingsControllerPolicy
     @user != nil
   end
 
+  def set_key?
+    index?
+  end
+
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :data_sources, only: [:index]
   resources :conflicts, only: [:index]
   resources :settings, only: [:index]
+  post 'settings/set_key' => 'settings#set_key', :as => :set_settings_key
 
   namespace 'smart_validator_db' do
     resources :announcements, only: [:index]

@@ -1,0 +1,15 @@
+%section#conflict-handler-settings{'data-set-key-path' => set_settings_key_path}
+  .row
+    .col
+      %h4=I18n.t('views.settings.index.conflict_handler.heuristics.title')
+      %p=I18n.t('views.settings.index.conflict_handler.heuristics.intro')
+      -Setting::CONFLICT_HANDLER_HEURISTICS_OPTIONS.first(3).each do |arr|
+        =radio_button_tag "conflict_handler_heuristics", arr[1], (@settings[:conflict_handler_heuristics] == arr[1]), :id => "conflict_handler_heuristics_#{arr[1]}", :class => 'css-checkbox', 'data-key' => 'conflict_handler.heuristics', 'data-value' => arr[1]
+        %label.css-label{:for => "conflict_handler_heuristics_#{arr[1]}"}
+          =arr[0]
+      =radio_button_tag "conflict_handler_heuristics", Setting::CONFLICT_HANDLER_HEURISTICS_OPTIONS.last[1], false, :id => "conflict_handler_heuristics_#{Setting::CONFLICT_HANDLER_HEURISTICS_OPTIONS.last[1]}", :class => 'css-checkbox', 'data-key' => 'conflict_handler.heuristics', 'data-value' => 'whitelist_after_n_days'
+      %label.whitelist-after-n-days-label.css-label{:for => "conflict_handler_heuristics_#{Setting::CONFLICT_HANDLER_HEURISTICS_OPTIONS.last[1]}"}
+        =I18n.t('views.settings.index.conflict_handler.heuristics.whitelist_after_n_days.before')
+        =number_field_tag 'conflict_handler_heuristics_whitelist_days', @settings[:conflict_handler_whitelist_after_days], class: 'form-control', 'data-key' => 'conflict_handler.whitelist_after_days'
+        =I18n.t('views.settings.index.conflict_handler.heuristics.whitelist_after_n_days.after')
+

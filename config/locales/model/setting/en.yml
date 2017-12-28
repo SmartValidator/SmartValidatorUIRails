@@ -1,0 +1,19 @@
+---
+en:
+  activerecord:
+    attributes:
+      setting:
+        key: 'Key'
+        value: 'Value'
+    models:
+      setting:
+        one: 'Setting'
+        other: 'Settings'
+    meta:
+      setting:
+        conflict_handler_heuristics:
+          inactive: 'Inactive'
+          filter_all: 'Filter all conflicts'
+          whitelist_all: 'Whitelist all conflicts'
+          whitelist_after_n_days: 'Whitelist conflicts after n days'
+

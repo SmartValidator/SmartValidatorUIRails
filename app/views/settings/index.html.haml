@@ -1,6 +1,23 @@
 -provide(:subtitle,I18n.t('views.settings.index.title'))
 
-%section#settings_index
-  .row
-    .col
-      %h1=I18n.t('views.settings.index.title')
+#settings_index
+  %section
+    .row
+      .col
+        %h1=I18n.t('views.settings.index.title')
+  %section
+    .row
+      .col-12.col-lg-3.margin-bottom-2
+        #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}
+          %a#v-pills-overview-tab.nav-link.active{"aria-controls" => "v-pills-overview", "aria-selected" => "true", "data-toggle" => "pill", :href => "#v-pills-overview", :role => "tab", :accesskey => '1'}
+            =I18n.t('views.settings.index.overview.title')
+            %span.key-hint 1
+          %a#v-pills-conflicthandler-tab.nav-link{"aria-controls" => "v-pills-conflicthandler", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-conflicthandler", :role => "tab", :accesskey => '2'}
+            =I18n.t('views.settings.index.conflict_handler.title')
+            %span.key-hint 2
+      .col-12.col-lg-9
+        #v-pills-tabContent.tab-content
+          #v-pills-overview.tab-pane.fade.show.active{"aria-labelledby" => "v-pills-overview-tab", :role => "tabpanel"}
+            =render 'settings/index/overview'
+          #v-pills-conflicthandler.tab-pane.fade{"aria-labelledby" => "v-pills-conflicthandler-tab", :role => "tabpanel"}
+            =render 'settings/index/conflict_handler'

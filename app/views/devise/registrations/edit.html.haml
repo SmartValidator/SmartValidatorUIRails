@@ -1,9 +1,6 @@
 -provide(:subtitle,I18n.t('devise_own.update_user'))
 
 #devise-box.devise-box-center
-  =button_to account_path, :method => :get, :class => 'btn btn-primary margin-bottom-2' do
-    .fa.fa-arrow-left
-    =I18n.t('general.back').capitalize
   %h2=I18n.t('devise_own.update_user')
   =devise_error_messages!
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
