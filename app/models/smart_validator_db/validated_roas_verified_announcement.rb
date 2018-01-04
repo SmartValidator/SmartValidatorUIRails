@@ -7,6 +7,10 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncement < ActiveRecord::Base
              class_name: SmartValidatorDb::Announcement,
              foreign_key: :verified_announcement_id
 
+  scope :resolved, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:resolved_conflict])}
+  scope :raw_rpkis, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:raw_rpki])}
+  scope :conflicts, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:conflict])}
+
   enum route_validity: [
     :reserved,
     :resolved_conflict,

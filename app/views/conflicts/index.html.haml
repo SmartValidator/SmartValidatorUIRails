@@ -8,15 +8,30 @@
   %section
     .row
       .col-12.col-lg-6
-        %h3=I18n.t('views.conflicts.index.last_conflicts.title')
-        %table#validated-roas-verified-announcements.table.table-striped{'data-source': smart_validator_db_validated_roas_verified_announcements_path(format: :json) }
-          %thead
-            %tr
-              %th=I18n.t('general.id')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roas_verified_announcement.route_validity')
-          %tbody
+        .row
+          .col
+            %h3=I18n.t('views.conflicts.index.last_conflicts.title')
+        .row
+          .col.text-right.margin-bottom-2
+            .btn-group.btn-group-toggle{"data-toggle" => "buttons"}
+              %label.btn.btn-secondary.btn-sm.active
+                %input{:autocomplete => "off", :checked => "checked", :name => "route_validity", :type => "radio", 'data-value' => 'resolved_conflict'}/
+                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.resolved_conflict')
+              %label.btn.btn-secondary.btn-sm
+                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'raw_rpki'}/
+                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.raw_rpki')
+              %label.btn.btn-secondary.btn-sm
+                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'conflict'}/
+                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.conflict')
+        .row
+          .col.text-right
+            %table#validated-roas-verified-announcements.table.table-striped{'data-source': smart_validator_db_validated_roas_verified_announcements_path(format: :json) }
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+              %tbody
       .col-12.col-lg-6
         %section
           .row

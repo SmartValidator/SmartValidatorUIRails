@@ -11,3 +11,9 @@ en:
         validated_roas_verified_announcement:
           one: 'validated_roas_verified_announcement'
           other: 'validated_roas_verified_announcements'
+    meta:
+      smart_validator_db:
+        validated_roas_verified_announcement:
+          resolved_conflict: 'Resolved'
+          raw_rpki: 'raw_rpki'
+          conflict: 'conflict'

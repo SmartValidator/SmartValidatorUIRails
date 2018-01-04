@@ -3,7 +3,6 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
   def view_columns
     @view_columns ||= {
       id: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.id", cond: :eq},
-      route_validity: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validity", cond: :like},
       announcement_asn: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.announcement_asn", cond: :like},
       announcement_prefix: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.announcement_prefix", cond: :like}
     }
@@ -13,7 +12,6 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
     records.map do |record|
       {
         id: record.id,
-        route_validity: record.route_validity,
         announcement_asn: record.announcement.asn,
         announcement_prefix: record.announcement.prefix
       }
@@ -23,7 +21,14 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
   private
 
   def get_raw_records
-    SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all
+    q = SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all
+
+    # Add scopes
+    q = q.resolved if params[:routevalidity] == 'resolved_conflict'
+    q = q.raw_rpkis if params[:routevalidity] == 'raw_rpki'
+    q = q.conflicts if params[:routevalidity] == 'conflict'
+
+    q
   end
 
   # ==== These methods represent the basic operations to perform on records
