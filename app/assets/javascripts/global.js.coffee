@@ -60,7 +60,6 @@ root.validated_roas_table = (table_obj) ->
   table_obj.on('xhr.dt', (e, settings, json, xhr) ->
     if xhr.status != 200
       location.href = $('#js-data').data('login-path')
-      $(this).stopPropagation()
       return false
     return true
   ).dataTable(

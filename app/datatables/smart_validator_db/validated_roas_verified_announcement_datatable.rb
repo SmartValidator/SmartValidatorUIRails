@@ -3,7 +3,9 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
   def view_columns
     @view_columns ||= {
       id: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.id", cond: :eq},
-      route_validity: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validity", cond: :like}
+      route_validity: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validity", cond: :like},
+      announcement_asn: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.announcement_asn", cond: :like},
+      announcement_prefix: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.announcement_prefix", cond: :like}
     }
   end
 
@@ -11,7 +13,9 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
     records.map do |record|
       {
         id: record.id,
-        route_validity: record.route_validity
+        route_validity: record.route_validity,
+        announcement_asn: record.announcement.asn,
+        announcement_prefix: record.announcement.prefix
       }
     end
   end
