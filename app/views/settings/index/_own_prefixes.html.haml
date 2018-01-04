@@ -1,0 +1,19 @@
+%section
+  .row
+    .col
+      %h4=I18n.t('views.settings.index.own_prefixes.title')
+      %p=I18n.t('views.settings.index.own_prefixes.intro')
+  .row
+    .col.text-right.margin-bottom-2
+      %button#add-own-prefix-button.btn.btn-primary{'data-new-path' => new_own_prefix_path, 'data-create-path' => own_prefixes_path, 'data-modal-title' => I18n.t('views.settings.index.own_prefixes.button'), 'data-modal-success' => I18n.t('views.settings.index.own_prefixes.success')}
+        =I18n.t('views.settings.index.own_prefixes.button')
+  .row
+    .col
+      %table#own-prefixes.table.table-striped{'data-source': own_prefixes_path(format: :json)}
+        %thead
+          %tr
+            %th=I18n.t('general.id')
+            %th=I18n.t('activerecord.attributes.own_prefix.prefix')
+        %tbody
+
+

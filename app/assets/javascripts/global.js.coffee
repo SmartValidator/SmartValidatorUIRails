@@ -76,3 +76,23 @@ root.validated_roas_table = (table_obj) ->
     ]
   ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
 
+# Some modal dialogs change buttons or hide them.
+# This method should be called before every configuration
+# of a new dialog to reset the potentially changed template.
+root.reset_modal_window = () ->
+  $('#modal-template .ok').show().html($('#js-data').data('ok'))
+  $('#modal-template .btn.cancel').show().html($('#js-data').data('cancel'))
+  return
+
+
+# Handles an error result from the controller.
+root.handle_modal_error = (xhr) ->
+  response = $.parseJSON(xhr['responseText'])
+  errors = response['errors']
+  if errors
+    error_text = ''
+    $.each errors, (key, value) ->
+      error_text += key + ': ' + value
+    root.show_error(error_text)
+  else
+    root.show_error($('#js-data').data('js-error'))

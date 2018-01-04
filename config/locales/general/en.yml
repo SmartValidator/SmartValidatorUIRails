@@ -6,3 +6,8 @@ en:
     login: 'Login'
     register: 'Register'
     id: 'ID'
+    no_no: 'No'
+    yes_yes: 'Yes'
+    ok: 'OK'
+    cancel: 'Cancel'
+    saved: 'Saved'

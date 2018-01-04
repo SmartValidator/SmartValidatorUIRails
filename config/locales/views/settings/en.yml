@@ -15,3 +15,8 @@ en:
             whitelist_after_n_days:
               before: 'Whitelist conflicts after'
               after: 'days'
+        own_prefixes:
+          title: 'My prefixes'
+          intro: 'Set the prefixes of your own networks here to highlight them in the tables.'
+          button: 'Add own prefix'
+          success: 'Own prefix addded'

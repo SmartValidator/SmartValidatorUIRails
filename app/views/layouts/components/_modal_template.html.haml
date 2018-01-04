@@ -1,0 +1,12 @@
+#modal-template.modal.fade
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h4.modal-title
+        %span.text-right
+          %button.close.cancel{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span.cursor-pointer.fa-2x{"aria-hidden" => "true"} ×
+      .modal-body
+      .modal-footer
+        %button.btn.btn-secondary.cancel{"data-dismiss" => "modal", :type => "button"}=I18n.t('general.no_no')
+        %button.btn.btn-primary.ok{:type => "button"}=I18n.t('general.ok_ok')
