@@ -19,19 +19,38 @@ module ApplicationHelper
   end
 
   # Parses a prefix parameter and performs the block.
-  def parse_prefix_param
-    if params[:prefix]
-      ip = IPAddress.parse(
-        ActionController::Base.helpers.sanitize(
-          CGI::unescape(
-            params[:prefix])
+  def parse_prefix_param(p)
+    return unless p
+    ip = IPAddress.parse(
+      ActionController::Base.helpers.sanitize(
+        CGI::unescape(
+          p
         )
       )
-      yield(ip)
-    end
+    )
+    yield(ip)
   rescue
     # Do nothing, just ignore the parameter.
   end
 
+  # Is true if the inner ip is included in the outer_prefix
+  def prefix_is_within_prefix?(inner_prefix, outer_prefix)
+    # TODO Fix this as soon as the bug with the cidr is solved.
+    return false
+    outer = IPAddress.parse(
+      ActionController::Base.helpers.sanitize(
+        CGI::unescape(outer_prefix)
+      )
+    )
+    outer = IPAddress.parse(
+      ActionController::Base.helpers.sanitize(
+        CGI::unescape(inner_prefix)
+      )
+    )
+
+    (outer == inner)
+  rescue
+    false
+  end
 
 end

@@ -1,7 +1,7 @@
 class SmartValidatorDb::AnnouncementDatatable < AjaxDatatablesRails::Base
 
   # Makes the link_to helper and routes available here.
-  def_delegators :@view, :ipaddr_with_cidr, :link_to, :data_sources_path, :parse_prefix_param
+  def_delegators :@view, :ipaddr_with_cidr, :link_to, :data_sources_path, :parse_prefix_param, :prefix_is_within_prefix?
 
   def view_columns
     @view_columns ||= {
@@ -16,7 +16,7 @@ class SmartValidatorDb::AnnouncementDatatable < AjaxDatatablesRails::Base
       {
         id: record.id,
         asn: record.asn,
-        prefix: link_to(ipaddr_with_cidr(record.prefix), data_sources_path(prefix: ipaddr_with_cidr(record.prefix)))
+        prefix: link_to(ipaddr_with_cidr(record.prefix), data_sources_path(prefix: ipaddr_with_cidr(record.prefix)), class: prefix_is_within_prefix?(record.prefix, '10.0.0.0/8') ? 'hightlighted_prefix' : '')
       }
     end
   end
@@ -25,7 +25,7 @@ class SmartValidatorDb::AnnouncementDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     q = SmartValidatorDb::Announcement.all
-    parse_prefix_param do |ip|
+    parse_prefix_param(params[:prefix]) do |ip|
       q = q.in_prefix(ip)
     end
     q

@@ -15,7 +15,7 @@ class DataSourcesController < ApplicationController
     @params = {
       prefix: nil
     }
-    parse_prefix_param do |ip|
+    parse_prefix_param(params[:prefix]) do |ip|
       @params[:prefix] = ip
     end
   end

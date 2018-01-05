@@ -31,7 +31,7 @@ class SmartValidatorDb::ValidatedRoaDatatable < AjaxDatatablesRails::Base
     # Add scopes
     q = q.filtered if params[:scope] == 'filtered'
     q = q.whitelisted if params[:scope] == 'whitelisted'
-    parse_prefix_param do |ip|
+    parse_prefix_param(params[:prefix]) do |ip|
       q = q.in_prefix(ip)
     end
 
