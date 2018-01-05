@@ -1,7 +1,7 @@
 class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatablesRails::Base
 
   # Makes the link_to helper and routes available here.
-  def_delegators :@view, :link_to, :analyzed_announcement_path, :ipaddr_with_cidr
+  def_delegators :@view, :link_to, :analyzed_announcement_path, :ipaddr_with_cidr, :link_to, :data_sources_path
 
   def view_columns
     @view_columns ||= {
@@ -16,7 +16,7 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
       {
         id: record.id,
         announcement_asn: record.announcement.asn,
-        announcement_prefix: ipaddr_with_cidr(record.announcement.prefix),
+        announcement_prefix: link_to(ipaddr_with_cidr(record.announcement.prefix), data_sources_path(prefix: ipaddr_with_cidr(record.announcement.prefix))),
         actions: link_to(I18n.t('general.details'), '#', 'data-show-path' => analyzed_announcement_path(record), class: 'analyzed-announcement-entry')
       }
     end

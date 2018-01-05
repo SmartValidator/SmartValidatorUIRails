@@ -52,6 +52,7 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+# IP address handling.
 gem 'ipaddress'
 
 # Ajax datatables integration

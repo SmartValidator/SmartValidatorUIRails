@@ -18,4 +18,20 @@ module ApplicationHelper
     "#{ipaddr}/#{ipaddr.to_i.to_s(2).count("1")}"
   end
 
+  # Parses a prefix parameter and performs the block.
+  def parse_prefix_param
+    if params[:prefix]
+      ip = IPAddress.parse(
+        ActionController::Base.helpers.sanitize(
+          CGI::unescape(
+            params[:prefix])
+        )
+      )
+      yield(ip)
+    end
+  rescue
+    # Do nothing, just ignore the parameter.
+  end
+
+
 end

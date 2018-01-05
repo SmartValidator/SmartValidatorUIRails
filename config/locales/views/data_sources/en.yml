@@ -4,3 +4,6 @@ en:
       index:
         title: 'Data sources'
         intro: 'Overview over stored raw data which is used by the whole system.'
+        with_prefix_filter: 'Shows only entries within prefix %{prefix}.'
+        remove_filter: 'Remove filter'
+

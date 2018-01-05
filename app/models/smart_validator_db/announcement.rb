@@ -2,6 +2,7 @@
 class SmartValidatorDb::Announcement < ActiveRecord::Base
   establish_connection(:smart_validator_db)
   self.table_name = 'announcements'
+  include PrefixMethods
 
   belongs_to :validated_roa,
              class_name: 'SmartValidatorDb::ValidatedRoa',

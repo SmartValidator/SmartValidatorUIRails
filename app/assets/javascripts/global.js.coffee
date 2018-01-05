@@ -49,7 +49,12 @@ root.announcement_table = (table_obj, callback = null) ->
   ).dataTable(
     processing: true
     serverSide: true
-    ajax: table_obj.data('source')
+    ajax:
+      url: table_obj.data('source')
+      data: (p) ->
+        if window.location.search && window.location.search.substr(1) && window.location.search.substr(1).split('=')
+          p.prefix = window.location.search.substr(1).split('=')[1]
+        return
     pagingType: 'full_numbers'
     columns: [
       {data: 'id'}
@@ -71,7 +76,12 @@ root.validated_roas_table = (table_obj, callback = null) ->
   ).dataTable(
     processing: true
     serverSide: true
-    ajax: table_obj.data('source')
+    ajax:
+      url: table_obj.data('source')
+      data: (p) ->
+        if window.location.search && window.location.search.substr(1) && window.location.search.substr(1).split('=')
+          p.prefix = window.location.search.substr(1).split('=')[1]
+        return
     pagingType: 'full_numbers'
     columns: [
       {data: 'id'}

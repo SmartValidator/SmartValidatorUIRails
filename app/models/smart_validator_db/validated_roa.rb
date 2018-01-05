@@ -2,6 +2,7 @@
 class SmartValidatorDb::ValidatedRoa < ActiveRecord::Base
   establish_connection(:smart_validator_db)
   self.table_name = 'validated_roas'
+  include PrefixMethods
 
   scope :filtered, proc {where(filtered: true)}
   scope :whitelisted, proc {where(whitelisted: true)}

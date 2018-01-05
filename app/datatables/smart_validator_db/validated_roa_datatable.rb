@@ -1,7 +1,7 @@
 class SmartValidatorDb::ValidatedRoaDatatable < AjaxDatatablesRails::Base
 
   # Makes the link_to helper and routes available here.
-  def_delegators :@view, :ipaddr_with_cidr
+  def_delegators :@view, :ipaddr_with_cidr, :link_to, :data_sources_path, :parse_prefix_param
 
   def view_columns
     @view_columns ||= {
@@ -17,7 +17,7 @@ class SmartValidatorDb::ValidatedRoaDatatable < AjaxDatatablesRails::Base
       {
         id: record.id,
         asn: record.asn,
-        prefix: ipaddr_with_cidr(record.prefix),
+        prefix: link_to(ipaddr_with_cidr(record.prefix), data_sources_path(prefix: ipaddr_with_cidr(record.prefix))),
         max_length: record.max_length
       }
     end
@@ -31,6 +31,9 @@ class SmartValidatorDb::ValidatedRoaDatatable < AjaxDatatablesRails::Base
     # Add scopes
     q = q.filtered if params[:scope] == 'filtered'
     q = q.whitelisted if params[:scope] == 'whitelisted'
+    parse_prefix_param do |ip|
+      q = q.in_prefix(ip)
+    end
 
     q
   end
