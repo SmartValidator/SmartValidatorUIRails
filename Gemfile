@@ -58,6 +58,9 @@ gem 'ipaddress'
 # Ajax datatables integration
 gem 'ajax-datatables-rails'
 
+# Use .env for environment variables.
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
