@@ -21,6 +21,9 @@ section {
   margin-top: 2em;
   margin-bottom: 1em;
 }
+section:first-child {
+  margin-top: 0;
+}
 
 .tab-pane > section {
   margin: 0;

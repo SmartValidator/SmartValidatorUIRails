@@ -1,0 +1,6 @@
+en:
+  views:
+    analyzed_announcements:
+      index:
+        title: 'Details'
+        intro: 'Announcement for ASN %{asn}, prefix %{prefix}.'

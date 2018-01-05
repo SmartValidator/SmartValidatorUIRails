@@ -3,8 +3,12 @@ en:
     conflicts:
       index:
         title: 'Conflicts'
-        last_conflicts:
-          title: 'Last conflicts'
+        analyzed_conflicts:
+          title: 'Analyzed announcements'
+          options:
+            valid: 'Valid'
+            invalid: 'Invalid'
+            unknown: 'Unknown'
         filtered:
           title: 'Filtered announcements'
         whitelisted:

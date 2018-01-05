@@ -10,27 +10,28 @@
       .col-12.col-lg-6
         .row
           .col
-            %h3=I18n.t('views.conflicts.index.last_conflicts.title')
+            %h3=I18n.t('views.conflicts.index.analyzed_conflicts.title')
         .row
           .col.text-right.margin-bottom-2
             .btn-group.btn-group-toggle{"data-toggle" => "buttons"}
               %label.btn.btn-secondary.btn-sm.active
-                %input{:autocomplete => "off", :checked => "checked", :name => "route_validity", :type => "radio", 'data-value' => 'resolved_conflict'}/
-                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.resolved_conflict')
+                %input{:autocomplete => "off", :checked => "checked", :name => "route_validity", :type => "radio", 'data-value' => 'is_valid'}/
+                =I18n.t('views.conflicts.index.analyzed_conflicts.options.valid')
               %label.btn.btn-secondary.btn-sm
-                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'raw_rpki'}/
-                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.raw_rpki')
+                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'invalid'}/
+                =I18n.t('views.conflicts.index.analyzed_conflicts.options.invalid')
               %label.btn.btn-secondary.btn-sm
-                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'conflict'}/
-                =I18n.t('activerecord.meta.smart_validator_db.validated_roas_verified_announcement.conflict')
+                %input{:autocomplete => "off", :name => "route_validity", :type => "radio", 'data-value' => 'unknown'}/
+                =I18n.t('views.conflicts.index.analyzed_conflicts.options.unknown')
         .row
           .col.text-right
-            %table#validated-roas-verified-announcements.table.table-striped{'data-source': smart_validator_db_validated_roas_verified_announcements_path(format: :json) }
+            %table#validated-roas-verified-announcements.table.table-striped{'data-source': smart_validator_db_validated_roas_verified_announcements_path(format: :json), 'data-modal-title' => I18n.t('views.analyzed_announcements.index.title') }
               %thead
                 %tr
                   %th=I18n.t('general.id')
                   %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
                   %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+                  %th
               %tbody
       .col-12.col-lg-6
         %section

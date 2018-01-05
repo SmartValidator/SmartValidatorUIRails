@@ -1,5 +1,8 @@
 class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatablesRails::Base
 
+  # Makes the link_to helper and routes available here.
+  def_delegators :@view, :link_to, :analyzed_announcement_path, :ipaddr_with_cidr
+
   def view_columns
     @view_columns ||= {
       id: {source: "SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.id", cond: :eq},
@@ -13,7 +16,8 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
       {
         id: record.id,
         announcement_asn: record.announcement.asn,
-        announcement_prefix: record.announcement.prefix
+        announcement_prefix: ipaddr_with_cidr(record.announcement.prefix),
+        actions: link_to(I18n.t('general.details'), '#', 'data-show-path' => analyzed_announcement_path(record), class: 'analyzed-announcement-entry')
       }
     end
   end
@@ -21,12 +25,16 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
   private
 
   def get_raw_records
-    q = SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all
+    q = SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all.select(
+      :id, :verified_announcement_id
+    ).group(
+      :verified_announcement_id, :id
+    )
 
     # Add scopes
-    q = q.resolved if params[:routevalidity] == 'resolved_conflict'
-    q = q.raw_rpkis if params[:routevalidity] == 'raw_rpki'
-    q = q.conflicts if params[:routevalidity] == 'conflict'
+    q = q.valid if params[:routevalidity] == 'valid'
+    q = q.invalid if params[:routevalidity] == 'invalid'
+    q = q.unknown if params[:routevalidity] == 'unknown'
 
     q
   end

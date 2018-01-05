@@ -1,0 +1,19 @@
+%section
+  .row
+    .col
+      %p #{I18n.t('views.analyzed_announcements.index.intro', asn: @vrva.validated_roa.asn, prefix: ipaddr_with_cidr(@vrva.validated_roa.prefix))}
+      %table.table.table-striped.data-table
+        %thead
+          %tr
+            %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.asn')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.prefix')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roa.max_length')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.validated_roas_verified_announcement.route_validity')
+        %tbody
+          -@connected_roas.each do |connected_roa_hash|
+            %tr
+              %td=connected_roa_hash[:roa].asn
+              %td=ipaddr_with_cidr(connected_roa_hash[:roa].prefix)
+              %td=connected_roa_hash[:roa].max_length
+              %td=I18n.t("activerecord.meta.smart_validator_db.validated_roas_verified_announcement.#{connected_roa_hash[:route_validity]}")
+

@@ -52,6 +52,8 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+gem 'ipaddress'
+
 # Ajax datatables integration
 gem 'ajax-datatables-rails'
 

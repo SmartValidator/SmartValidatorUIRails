@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :settings, only: [:index]
   post 'settings/set_key' => 'settings#set_key', :as => :set_settings_key
   resources :own_prefixes, only: [:index, :new, :create]
+  resources :analyzed_announcements, only: [:show]
 
   namespace 'smart_validator_db' do
     resources :announcements, only: [:index]

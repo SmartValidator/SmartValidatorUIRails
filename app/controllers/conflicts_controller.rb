@@ -9,4 +9,3 @@ class ConflictsController < ApplicationController
 
 end
 
-

@@ -4,17 +4,24 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncement < ActiveRecord::Base
   self.table_name = 'validated_roas_verified_announcements'
 
   belongs_to :announcement,
-             class_name: SmartValidatorDb::Announcement,
+             class_name: 'SmartValidatorDb::Announcement',
              foreign_key: :verified_announcement_id
 
-  scope :resolved, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:resolved_conflict])}
-  scope :raw_rpkis, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:raw_rpki])}
-  scope :conflicts, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:conflict])}
+  belongs_to :validated_roa,
+             class_name: 'SmartValidatorDb::ValidatedRoa',
+             foreign_key: :validated_roa_id
+
+  scope :valid, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:is_valid])}
+  scope :invalid_asn, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_asn])}
+  scope :invalid_length, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_length])}
+  scope :invalid, proc { invalid_asn.or(invalid_length) }
+  scope :unknown, proc {
+    not("route_validity = ANY(ARRAY[#{SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities.map {|e| e[1]}}])")
+  }
 
   enum route_validity: [
-    :reserved,
-    :resolved_conflict,
-    :raw_rpki,
-    :conflict
+    :is_valid,
+    :invalid_asn,
+    :invalid_length
   ].freeze
 end
