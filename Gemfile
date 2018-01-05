@@ -64,6 +64,13 @@ group :development, :test do
 end
 
 group :development do
+  # Deployment
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+
   gem 'web-console'
   gem 'bullet'
   gem 'listen'
