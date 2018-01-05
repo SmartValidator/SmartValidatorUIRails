@@ -3,3 +3,4 @@ en:
     data_sources:
       index:
         title: 'Data sources'
+        intro: 'Overview over stored raw data which is used by the whole system.'
