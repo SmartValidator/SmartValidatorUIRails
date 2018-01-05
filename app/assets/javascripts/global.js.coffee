@@ -36,12 +36,15 @@ root.show_info = (msg) ->
   show_noty msg, 'info', 5000
   return
 
-root.announcement_table = (table_obj) ->
+root.announcement_table = (table_obj, callback = null) ->
   table_obj.on('xhr.dt', (e, settings, json, xhr) ->
     if xhr.status != 200
       location.href = $('#js-data').data('login-path')
       $(this).stopPropagation()
       return false
+    else
+      if callback
+        callback('announcements', json)
     return true
   ).dataTable(
     processing: true
@@ -56,11 +59,14 @@ root.announcement_table = (table_obj) ->
   ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
 
 
-root.validated_roas_table = (table_obj) ->
+root.validated_roas_table = (table_obj, callback = null) ->
   table_obj.on('xhr.dt', (e, settings, json, xhr) ->
     if xhr.status != 200
       location.href = $('#js-data').data('login-path')
       return false
+    else
+      if callback
+        callback('roas', json)
     return true
   ).dataTable(
     processing: true
@@ -95,3 +101,8 @@ root.handle_modal_error = (xhr) ->
     root.show_error(error_text)
   else
     root.show_error($('#js-data').data('js-error'))
+
+# Formats a number for pretty printing.
+root.format_number = (n) ->
+  return n
+

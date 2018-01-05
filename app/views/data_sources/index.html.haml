@@ -12,9 +12,11 @@
         #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}
           %a#v-pills-announcements-tab.nav-link.active{"aria-controls" => "v-pills-announcements", "aria-selected" => "true", "data-toggle" => "pill", :href => "#v-pills-announcements", :role => "tab", :accesskey => '1'}
             =I18n.t('activerecord.models.smart_validator_db.announcement.other')
+            %span#announcements-count.badge.badge-secondary
             %span.key-hint 1
           %a#v-pills-roas-tab.nav-link{"aria-controls" => "v-pills-roas", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-roas", :role => "tab", :accesskey => '2'}
             =I18n.t('activerecord.models.smart_validator_db.validated_roa.other')
+            %span#roas-count.badge.badge-secondary
             %span.key-hint 2
       .col-12.col-lg-9
         #v-pills-tabContent.tab-content
