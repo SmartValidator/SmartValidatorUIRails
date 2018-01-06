@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'graphs/conflict_status' => 'graphs#conflict_status', :as => :conflict_status_graph
   get 'graphs/bgp_status' => 'graphs#bgp_status', :as => :bgp_status_graph
   get 'graphs/timeline_conflicts' => 'graphs#timeline_conflicts', :as => :timeline_conflicts_graph
+  resource :simulator, only: [:show]
 
   namespace 'smart_validator_db' do
     resources :announcements, only: [:index]
