@@ -8,5 +8,4 @@ class SmartValidatorDb::LocalAnnouncement < ActiveRecord::Base
     :blocked,
     :secured
   ].freeze
-
 end

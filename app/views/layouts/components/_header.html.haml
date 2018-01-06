@@ -14,6 +14,9 @@
         %li.nav-item
           %a.nav-link{:href => data_sources_path}
             =I18n.t('views.data_sources.index.title')
+        %li.nav-item
+          %a.nav-link{:href => router_status_path}
+            =I18n.t('views.router_statuses.show.title')
       %ul.navbar-nav
         %li.nav-item
           %a.nav-link{:href => settings_path}

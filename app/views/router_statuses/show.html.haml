@@ -1,0 +1,20 @@
+-provide(:subtitle,I18n.t('views.router_statuses.show.title'))
+
+#router_statuses_show
+  %section
+    .row
+      .col
+        %h1=I18n.t('views.router_statuses.show.title')
+  %section
+    .row
+      .col
+        %table#rtr-status-entries.table.table-striped{'data-source': smart_validator_db_rtr_status_entries_path(format: :json) }
+          %thead
+            %tr
+              %th=I18n.t('general.id')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.router')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.start_time')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.end_time')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.state')
+          %tbody
+

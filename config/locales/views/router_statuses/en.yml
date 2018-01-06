@@ -1,0 +1,5 @@
+en:
+  views:
+    router_statuses:
+      show:
+        title: 'Router status'

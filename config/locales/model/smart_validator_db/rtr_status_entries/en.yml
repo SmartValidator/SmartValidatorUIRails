@@ -1,0 +1,22 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        rtr_status_entries:
+          router: 'Router'
+          start_time: 'Start time'
+          end_time: 'End time'
+          state: 'State'
+    models:
+      smart_validator_db:
+        rtr_status_entries:
+          one: 'Router status'
+          other: 'Router status'
+    meta:
+      smart_validator_db:
+        rtr_status_entries:
+          state:
+            offline: 'Offline'
+            online: 'Online'
+
