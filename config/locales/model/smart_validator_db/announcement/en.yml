@@ -6,16 +6,8 @@ en:
         announcement:
           asn: 'ASN'
           prefix: 'Prefix'
-          blocking_status: 'Blocking status'
     models:
       smart_validator_db:
         announcement:
           one: 'Announcement'
           other: 'Announcements'
-    meta:
-      smart_validator_db:
-        announcement:
-          blocking_status:
-            unaffected: 'Unaffected'
-            blocked: 'Blocked'
-            secured: 'Protected'

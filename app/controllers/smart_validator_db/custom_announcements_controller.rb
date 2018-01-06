@@ -1,7 +1,7 @@
 # Responsible for the local conflicts.
-class SmartValidatorDb::LocalAnnouncementsController < ApplicationController
+class SmartValidatorDb::CustomAnnouncementsController < ApplicationController
 
-  # GET smart_validator_db/local_announcements
+  # GET smart_validator_db/custom_announcements
   def index
     authorize self
 
@@ -10,7 +10,7 @@ class SmartValidatorDb::LocalAnnouncementsController < ApplicationController
         render body: nil, status: 404
       }
       format.json {
-        render json: SmartValidatorDb::LocalAnnouncementDatatable.new(view_context)
+        render json: SmartValidatorDb::CustomAnnouncementDatatable.new(view_context)
       }
     end
   end

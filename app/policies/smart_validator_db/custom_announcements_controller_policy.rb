@@ -1,5 +1,5 @@
-# Policy for announcements
-class SmartValidatorDb::LocalAnnouncementsControllerPolicy
+# Policy for custom
+class SmartValidatorDb::CustomAnnouncementsControllerPolicy
   attr_reader :user, :record
 
   # Initialization
