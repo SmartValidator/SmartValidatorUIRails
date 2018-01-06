@@ -44,7 +44,7 @@ module GraphsHelper
       unknown_count: {
         label: I18n.t("views.pages.index.graphs.bgp_status.unknown_count"),
         count: SmartValidatorDb::Announcement.find_by_sql(
-          'SELECT COUNT(announcements.*) FROM announcements LEFT JOIN validated_roas_verified_announcements ON (announcements.id = validated_roas_verified_announcements.verified_announcement_id) WHERE validated_roas_verified_announcements.verified_announcement_id IS NULL;'
+          'SELECT COUNT(announcements.*) FROM announcements LEFT JOIN validated_roas_verified_announcements ON (announcements.id = validated_roas_verified_announcements.announcement_id) WHERE validated_roas_verified_announcements.announcement_id IS NULL;'
         ).to_a.first.count,
         background_color: GRAPH_COLORS[0][:background_color],
         border_color: GRAPH_COLORS[0][:border_color]

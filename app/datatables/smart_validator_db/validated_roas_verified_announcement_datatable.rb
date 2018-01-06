@@ -26,9 +26,9 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncementDatatable < AjaxDatatab
 
   def get_raw_records
     q = SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all.select(
-      :id, :verified_announcement_id
+      :id, :announcement_id
     ).group(
-      :verified_announcement_id, :id
+      :announcement_id, :id
     )
 
     # Add scopes

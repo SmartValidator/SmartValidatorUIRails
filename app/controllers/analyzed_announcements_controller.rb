@@ -7,18 +7,18 @@ class AnalyzedAnnouncementsController < ApplicationController
     authorize self
     return unless get_analyzed_announcement
 
-    @connected_roas = []
-    # Get all other analyzed entries which refer to the same verified announcements.
-    SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.where(
-      verified_announcement_id: @vrva.verified_announcement_id
-    ).each do |vrva|
-      @connected_roas.push(
-        {
-          roa: vrva.validated_roa,
-          route_validity: vrva.route_validity
-        }
-      )
-    end
+   @connected_roas = []
+   # Get all other analyzed entries which refer to the same verified announcements.
+   SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.where(
+     announcement_id: @vrva.announcement_id
+   ).each do |vrva|
+     @connected_roas.push(
+       {
+         roa: vrva.validated_roa,
+         route_validity: vrva.route_validity
+       }
+     )
+   end
 
     render partial: 'analyzed_announcements/show'
   end
