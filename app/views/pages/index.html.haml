@@ -1,6 +1,20 @@
 -provide(:subtitle,I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name]))
 
-%section#pages_index
-  .row
-    .col
-      %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
+#pages_index
+  %section
+    .row
+      .col
+        %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
+  %section
+    .row
+      .col
+        %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
+  %section
+    .row
+      .col
+        %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
+  %section
+    .row
+      .col
+        %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
+

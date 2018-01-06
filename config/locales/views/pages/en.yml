@@ -3,3 +3,8 @@ en:
     pages:
       index:
         title: 'Welcome to the SmartValidator UI'
+        graphs:
+          bgp_status:
+            unknown_count: 'Unknown'
+            valid_count: 'Valid'
+            conflict_count: 'Conflict'

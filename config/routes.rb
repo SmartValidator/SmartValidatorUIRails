@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post 'settings/set_key' => 'settings#set_key', :as => :set_settings_key
   resources :own_prefixes, only: [:index, :new, :create]
   resources :analyzed_announcements, only: [:show]
+  get 'graphs/conflict_status' => 'graphs#conflict_status', :as => :conflict_status_graph
+  get 'graphs/bgp_status' => 'graphs#bgp_status', :as => :bgp_status_graph
+  get 'graphs/timeline_conflicts' => 'graphs#timeline_conflicts', :as => :timeline_conflicts_graph
 
   namespace 'smart_validator_db' do
     resources :announcements, only: [:index]

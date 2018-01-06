@@ -5,4 +5,5 @@
 //= require noty.min
 //= require datatables.min
 //= require chosen.jquery.min
+//= require Chart.bundle.min
 //= require global.js
