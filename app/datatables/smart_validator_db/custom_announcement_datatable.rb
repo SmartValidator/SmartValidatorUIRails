@@ -7,8 +7,7 @@ class SmartValidatorDb::CustomAnnouncementDatatable < AjaxDatatablesRails::Base
     @view_columns ||= {
       id: {source: "SmartValidatorDb::CustomAnnouncement.id", cond: :like},
       asn: {source: "SmartValidatorDb::CustomAnnouncement.asn", cond: :like},
-      prefix: {source: "SmartValidatorDb::CustomAnnouncement.prefix", cond: :like},
-      blocking_status: {source: "SmartValidatorDb::CustomAnnouncement.blocking_status", cond: :like}
+      prefix: {source: "SmartValidatorDb::CustomAnnouncement.prefix", cond: :like}
     }
   end
 

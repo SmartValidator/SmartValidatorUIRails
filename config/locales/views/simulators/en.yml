@@ -3,3 +3,4 @@ en:
     simulators:
       show:
         title: 'Simulator'
+        prefix_added: 'Prefix added'

@@ -1,0 +1,12 @@
+%section
+  .row
+    .col
+      %table#custom-announcements.table.table-striped{'data-source': smart_validator_db_custom_announcements_path(format: :json), 'data-create-watched-prefix-path' => smart_validator_db_watched_prefixes_path, 'data-prefix-added' => I18n.t('views.simulators.show.prefix_added') }
+        %thead
+          %tr
+            %th=I18n.t('general.id')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.custom_announcement.blocking_status')
+        %tbody
+
