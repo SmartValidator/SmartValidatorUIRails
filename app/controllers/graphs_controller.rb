@@ -27,5 +27,13 @@ class GraphsController < ApplicationController
     }
   end
 
+  # GET /graphs/payload_roas
+  def payload_roas
+    authorize self
+    render json: {
+      payload_roas: payload_roas_hash.to_json
+    }
+  end
+
 end
 

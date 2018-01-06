@@ -8,7 +8,7 @@
   %section
     .row
       .col
-        %table#local-announcements.table.table-striped{'data-source': smart_validator_db_custom_announcements_path(format: :json) }
+        %table#custom-announcements.table.table-striped{'data-source': smart_validator_db_custom_announcements_path(format: :json) }
           %thead
             %tr
               %th=I18n.t('general.id')

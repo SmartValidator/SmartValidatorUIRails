@@ -20,4 +20,8 @@ class GraphsControllerPolicy
     conflict_status?
   end
 
+  def payload_roas?
+    conflict_status?
+  end
+
 end

@@ -1,7 +1,7 @@
 root = exports ? this
 
 $ ->
-  $('#local-announcements').on('xhr.dt', (e, settings, json, xhr) ->
+  $('#custom-announcements').on('xhr.dt', (e, settings, json, xhr) ->
     if xhr.status != 200
       location.href = $('#js-data').data('login-path')
       $(this).stopPropagation()
@@ -11,7 +11,7 @@ $ ->
     processing: true
     serverSide: true
     ajax:
-      url: $('#local-announcements').data('source')
+      url: $('#custom-announcements').data('source')
     pagingType: 'full_numbers'
     columns: [
       {data: 'id'}

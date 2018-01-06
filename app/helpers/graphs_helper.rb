@@ -94,4 +94,28 @@ module GraphsHelper
     ret
   end
 
+  # Returns the payload_roas_hash.
+  def payload_roas_hash
+    {
+      original: {
+        label: I18n.t('views.pages.index.graphs.payload_roas.original'),
+        count: SmartValidatorDb::PayloadRoa.where(filtered: false).where(whitelisted: false).count,
+        background_color: GRAPH_COLORS[0][:background_color],
+        border_color: GRAPH_COLORS[0][:border_color]
+      },
+      filtered: {
+        label: I18n.t('views.pages.index.graphs.payload_roas.filtered'),
+        count: SmartValidatorDb::PayloadRoa.where(filtered: true).where(whitelisted: false).count,
+        background_color: GRAPH_COLORS[1][:background_color],
+        border_color: GRAPH_COLORS[1][:border_color]
+      },
+      whitelisted: {
+        label: I18n.t('views.pages.index.graphs.payload_roas.whitelisted'),
+        count: SmartValidatorDb::PayloadRoa.where(filtered: false).where(whitelisted: true).count,
+        background_color: GRAPH_COLORS[2][:background_color],
+        border_color: GRAPH_COLORS[2][:border_color]
+      }
+    }
+  end
+
 end

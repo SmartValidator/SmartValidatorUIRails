@@ -4,9 +4,12 @@ $ ->
   load_status_graph($('#conflict-status-chart'), 'conflict_status', render_conflict_status_graph)
   load_status_graph($('#bgp-status-chart'), 'bgp_status', render_bgp_status_graph)
   load_status_graph($('#timeline-conflicts-chart'), 'timeline_conflicts', render_timeline_conflicts_graph)
+  load_status_graph($('#payload-roas-chart'), 'payload_roas', render_payload_roas_graph)
 
 # Loads the data via AJAX.
 load_status_graph = (obj, key, callback) ->
+  if $(obj).length == 0
+    return
   $.ajax
     url: obj.data('load-path')
     type: 'GET'
@@ -77,6 +80,25 @@ render_timeline_conflicts_graph = (graph_data) ->
       datasets: [ {
         data: graph_data['datas']
         fill: false
+      } ]
+  )
+
+
+# Performs the rendering of the bgp status graph
+render_payload_roas_graph = (graph_data) ->
+  ctx = document.getElementById('payload-roas-chart').getContext('2d')
+  myChart = new Chart(ctx,
+    type: 'pie'
+    options:
+      legend:
+        display: false
+    data:
+      labels: graph_data['labels']
+      datasets: [ {
+        data: graph_data['datas']
+        backgroundColor: graph_data['background_colors']
+        borderColor: graph_data['border_colors']
+        borderWidth: 1
       } ]
   )
 

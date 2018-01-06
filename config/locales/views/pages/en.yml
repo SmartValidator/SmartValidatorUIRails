@@ -8,3 +8,7 @@ en:
             unknown_count: 'Unknown'
             valid_count: 'Valid'
             conflict_count: 'Conflict'
+          payload_roas:
+            original: 'Original'
+            filtered: 'Filtered'
+            whitelisted: 'Whitelisted'
