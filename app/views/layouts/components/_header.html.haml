@@ -17,6 +17,9 @@
         %li.nav-item
           %a.nav-link{:href => router_status_path}
             =I18n.t('views.router_statuses.show.title')
+        %li.nav-item
+          %a.nav-link{:href => self_overview_path}
+            =I18n.t('views.self_overview.show.title')
       %ul.navbar-nav
         %li.nav-item
           %a.nav-link{:href => settings_path}

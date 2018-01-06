@@ -1,0 +1,5 @@
+en:
+  views:
+    self_overview:
+      show:
+        title: 'Self overview'

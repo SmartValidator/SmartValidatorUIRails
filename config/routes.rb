@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :own_prefixes, only: [:index, :new, :create]
   resources :analyzed_announcements, only: [:show]
   resource :simulator, only: [:show]
+  resource :self_overview, only: [:show], :controller => :self_overview
   resource :router_status, only: [:show]
   get 'graphs/conflict_status' => 'graphs#conflict_status', :as => :conflict_status_graph
   get 'graphs/bgp_status' => 'graphs#bgp_status', :as => :bgp_status_graph
