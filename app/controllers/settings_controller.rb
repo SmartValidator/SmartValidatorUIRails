@@ -46,9 +46,30 @@ class SettingsController < ApplicationController
     setting_entry.value = params[:value]
 
     # Update the entry and return.
-    render(body: nil, status: setting_entry.save ? 200 : 500)
+    unless setting_entry.save
+      render body: nil, status: 500
+      return
+    end
+
+    # OK, see if we have actions to trigger now.
+    # Check if there is a function defined and perform them now.
+    key_hash = Setting::KEY_TRIGGER.reject {|x| x[:key] != params[:key]}.first
+    send(key_hash[:func]) if key_hash
+
+    render body: nil, status: 200
   rescue
     render body: nil, status: 500
+  end
+
+  private
+
+  def trigger_simulator_mode_change
+    response = HTTParty.get(
+      Rails.configuration.global[:simulator][:mode_change_url]
+    )
+  rescue
+    # TODO Log this. In general, add system logs.
+    # Currently, do nothing.
   end
 
 end

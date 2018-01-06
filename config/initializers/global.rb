@@ -9,6 +9,9 @@ Rails.configuration.global = {
       }
     }
   },
+  simulator: {
+    mode_change_url: 'http://localhost:6662/modeChange'
+  },
   users: {
     model: {
       password: {

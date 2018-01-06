@@ -30,6 +30,14 @@ class Setting < ApplicationRecord
     }
   ].freeze
 
+  # Contains key, which, if changed, triggers functions.
+  KEY_TRIGGER = [
+    {
+      key: 'simulator.mode',
+      func: :trigger_simulator_mode_change
+    }
+  ].freeze
+
   enum conflict_handler_heuristics: [
     :inactive,
     :filter_all,

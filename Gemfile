@@ -61,6 +61,9 @@ gem 'ajax-datatables-rails'
 # Use .env for environment variables.
 gem 'dotenv-rails'
 
+# Simpler http.
+gem 'httparty'
+
 group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
