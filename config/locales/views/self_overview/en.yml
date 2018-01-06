@@ -3,3 +3,5 @@ en:
     self_overview:
       show:
         title: 'Self overview'
+        add_prefix: 'Add watched prefix'
+        success: 'Own prefix addded'

@@ -1,0 +1,12 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        own_prefix:
+            prefix: 'Prefix'
+    models:
+      smart_validator_db:
+        own_prefix:
+          one: 'My prefix'
+          other: 'My prefixes'

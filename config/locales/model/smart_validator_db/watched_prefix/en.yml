@@ -1,0 +1,12 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        watched_prefix:
+            prefix: 'Prefix'
+    models:
+      smart_validator_db:
+        watched_prefix:
+          one: 'Watched prefix'
+          other: 'Watched prefixes'

@@ -5,4 +5,8 @@
     .row
       .col
         %h1=I18n.t('views.self_overview.show.title')
+  .row
+    .col.text-right.margin-bottom-2
+      %button#add-watched-prefix-button.btn.btn-primary{'data-new-path' => new_watched_prefix_path, 'data-create-path' => watched_prefixes_path, 'data-modal-title' => I18n.t('views.self_overview.show.add_prefix'), 'data-modal-success' => I18n.t('views.self_overview.show.success')}
+        =I18n.t('views.self_overview.show.add_prefix')
   =render 'shared/custom_announcements_table'
