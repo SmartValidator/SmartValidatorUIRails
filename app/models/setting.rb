@@ -21,6 +21,12 @@ class Setting < ApplicationRecord
       type: :int,
       minimum_value: 1,
       maximum_value: 32
+    },
+    {
+      key: 'simulator.mode',
+      type: :int,
+      minimum_value: 0,
+      maximum_value: 1
     }
   ].freeze
 

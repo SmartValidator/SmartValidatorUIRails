@@ -1,0 +1,11 @@
+%section#simulator-settings
+  .row
+    .col
+      %h4=I18n.t('views.settings.index.simulator.title')
+      =radio_button_tag "simulator_mode", '1', @settings[:simulator_mode], :class => 'css-checkbox', 'data-key' => 'simulator.mode', 'data-value' => '1'
+      %label.css-label{:for => "simulator_mode_1"}
+        =I18n.t('general.active')
+      =radio_button_tag "simulator_mode", '0', !@settings[:simulator_mode], :class => 'css-checkbox', 'data-key' => 'simulator.mode', 'data-value' => '0'
+      %label.css-label{:for => "simulator_mode_0"}
+        =I18n.t('general.inactive')
+

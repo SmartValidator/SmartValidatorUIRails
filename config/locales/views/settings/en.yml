@@ -20,3 +20,6 @@ en:
           intro: 'Set the prefixes of your own networks here to highlight them in the tables.'
           button: 'Add own prefix'
           success: 'Own prefix addded'
+        simulator:
+          title: 'Simulator'
+

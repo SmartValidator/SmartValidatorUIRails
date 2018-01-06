@@ -8,7 +8,8 @@ class SettingsController < ApplicationController
 
     @settings = {
       conflict_handler_heuristics: Setting.value_for_key('conflict_handler.heuristics', 'inactive').to_sym,
-      conflict_handler_whitelist_after_days: Setting.value_for_key('conflict_handler.whitelist_after_days', '1')
+      conflict_handler_whitelist_after_days: Setting.value_for_key('conflict_handler.whitelist_after_days', '1'),
+      simulator_mode: (Setting.value_for_key('simulator.mode', '0') == '1')
     }
   end
 

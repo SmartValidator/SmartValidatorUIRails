@@ -12,3 +12,5 @@ en:
     cancel: 'Cancel'
     saved: 'Saved'
     details: 'Details'
+    active: 'Active'
+    inactive: 'Inactive'

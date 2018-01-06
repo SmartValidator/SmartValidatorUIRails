@@ -7,6 +7,9 @@ $ ->
       return update_conflict_handler_settings($(this))
   $('#add-own-prefix-button').on 'click', () ->
     return new_own_prefix()
+  $('#simulator-settings input').each (i, obj) ->
+    $(this).on 'change', () ->
+      return update_simulator_settings($(this))
 
 load_prefix_table = () ->
   $('#own-prefixes').on('xhr.dt', (e, settings, json, xhr) ->
@@ -26,8 +29,16 @@ load_prefix_table = () ->
     ]
   ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
 
-
+# Updates the conflict handler settings.
 update_conflict_handler_settings = (obj) ->
+  update_checkbox_setting(obj)
+
+# Updates the simulator settings.
+update_simulator_settings = (obj) ->
+  update_checkbox_setting(obj)
+
+# Updates the setting checkboxes.
+update_checkbox_setting = (obj) ->
   # Try first to get a value from the data tag.
   val = obj.data('value')
   # If there is no data tag, use the object's value.
@@ -35,7 +46,7 @@ update_conflict_handler_settings = (obj) ->
     val = obj.val()
   # Perform the request.
   $.ajax
-    url: $('#conflict-handler-settings').data('set-key-path')
+    url: $('#settings_index').data('set-key-path')
     type: 'POST'
     data:
       key: obj.data('key')
