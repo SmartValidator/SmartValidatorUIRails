@@ -5,4 +5,15 @@
     .row
       .col
         %h1=I18n.t('views.simulators.show.title')
+  %section
+    .row
+      .col
+        %table#local-announcements.table.table-striped{'data-source': smart_validator_db_local_announcements_path(format: :json) }
+          %thead
+            %tr
+              %th=I18n.t('general.id')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.blocking_status')
+          %tbody
 

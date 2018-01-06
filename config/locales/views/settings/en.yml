@@ -17,8 +17,8 @@ en:
               after: 'days'
         own_prefixes:
           title: 'My prefixes'
-          intro: 'Set the prefixes of your own networks here to highlight them in the tables.'
-          button: 'Add own prefix'
+          intro: 'Set the prefixes of your own networks here to highlight them.'
+          button: 'Add prefix'
           success: 'Own prefix addded'
         simulator:
           title: 'Simulator'
