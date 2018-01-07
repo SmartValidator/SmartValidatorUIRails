@@ -91,8 +91,8 @@ root.validated_roas_table = (table_obj, callback = null) ->
     ]
   ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
 
-root.custom_announcements_table = (callback = null) ->
-  $('#custom-announcements').on('xhr.dt', (e, settings, json, xhr) ->
+root.abstract_announcements_table = (id_name, callback = null) ->
+  $(id_name).on('xhr.dt', (e, settings, json, xhr) ->
     if xhr.status != 200
       location.href = $('#js-data').data('login-path')
       $(this).stopPropagation()
@@ -105,7 +105,7 @@ root.custom_announcements_table = (callback = null) ->
     processing: true
     serverSide: true
     ajax:
-      url: $('#custom-announcements').data('source')
+      url: $(id_name).data('source')
     pagingType: 'full_numbers'
     columns: [
       {data: 'id'}

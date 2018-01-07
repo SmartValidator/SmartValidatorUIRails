@@ -1,0 +1,21 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        user_announcement:
+          asn: 'ASN'
+          prefix: 'Prefix'
+          blocking_status: 'Blocking status'
+    models:
+      smart_validator_db:
+        user_announcement:
+          one: 'Watched Announcement'
+          other: 'Watched Announcements'
+    meta:
+      smart_validator_db:
+        user_announcement:
+          blocking_status:
+            unaffected: 'Unaffected'
+            blocked: 'Blocked'
+            secured: 'Protected'

@@ -5,5 +5,17 @@
     .row
       .col
         %h1=I18n.t('views.simulators.show.title')
-  =render 'shared/custom_announcements_table'
+  %section
+    .row
+      .col
+        %table#watched-announcements.table.table-striped{'data-source': smart_validator_db_watched_announcements_path(format: :json)}
+          %thead
+            %tr
+              %th=I18n.t('general.id')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.watched_prefix.asn')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.watched_prefix.prefix')
+              %th=I18n.t('activerecord.attributes.smart_validator_db.watched_prefix.blocking_status')
+          %tbody
+
+
 
