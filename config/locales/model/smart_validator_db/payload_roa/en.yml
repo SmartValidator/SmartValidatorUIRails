@@ -1,0 +1,16 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        payload_roa:
+          asn: 'ASN'
+          prefix: 'Prefix'
+          max_length: 'Max length'
+          filtered: 'Filtered'
+          whitelisted: 'Whitelisted'
+    models:
+      smart_validator_db:
+        payload_roa:
+          one: 'validated_roas_verified_announcement'
+          other: 'validated_roas_verified_announcements'

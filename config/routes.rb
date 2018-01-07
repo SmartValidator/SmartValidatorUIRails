@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resource :simulator, only: [:show]
   resource :self_overview, only: [:show], :controller => :self_overview
   resource :router_status, only: [:show]
+  resources :payload_roas, only: [:index]
   get 'graphs/conflict_status' => 'graphs#conflict_status', :as => :conflict_status_graph
   get 'graphs/bgp_status' => 'graphs#bgp_status', :as => :bgp_status_graph
   get 'graphs/timeline_conflicts' => 'graphs#timeline_conflicts', :as => :timeline_conflicts_graph
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     resources :announcements, only: [:index]
     resources :custom_announcements, only: [:index]
     resources :validated_roas, only: [:index]
+    resources :payload_roas, only: [:index]
     resources :validated_roas_verified_announcements, only: [:index]
     resources :rtr_status_entries, only: [:index]
     resources :watched_prefixes, only: [:create]

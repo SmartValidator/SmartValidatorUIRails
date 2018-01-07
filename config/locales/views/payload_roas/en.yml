@@ -1,0 +1,5 @@
+en:
+  views:
+    payload_roas:
+      index:
+        title: 'Current ROA status'
