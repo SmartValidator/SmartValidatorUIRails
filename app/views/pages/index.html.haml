@@ -1,25 +1,36 @@
 -provide(:subtitle,I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name]))
 
 #pages_index
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
   -if current_user
-    %section
-      .row
-        .col
-          %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
-    %section
-      .row
-        .col
-          %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
-    %section
-      .row
-        .col
-          %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
-    %section
-      .row
-        .col
-          %canvas#payload-roas-chart{'data-load-path' => payload_roas_graph_path(format: :json)}
+    %section.content
+      =render 'shared/white_box' do
+        .row
+          .col-md-9.col-sm-8
+            %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
+          .col-md-3.col-sm-4
+            .pad.box-pane-right.bg-green{:style => "min-height: 280px"}
+              .description-block.margin-bottom
+                .sparkbar.pad{"data-color" => "#fff"} 90,70,90,70,75,80,70
+                %h5.description-header 8390
+                %span.description-text Visits
+
+    %section.content
+      =render 'shared/white_box' do
+        .row
+          .col
+            %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
+    %section.content
+      =render 'shared/white_box' do
+        .row
+          .col
+            %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
+    %section.content
+      =render 'shared/white_box' do
+        .row
+          .col
+            %canvas#payload-roas-chart{'data-load-path' => payload_roas_graph_path(format: :json)}
 

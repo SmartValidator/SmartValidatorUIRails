@@ -1,0 +1,11 @@
+.box.box-success
+  .box-header.with-border
+    %h3.box-title Visitors Report
+    .box-tools.pull-right
+      %button.btn.btn-box-tool{"data-widget" => "collapse", :type => "button"}
+        %i.fa.fa-minus
+      %button.btn.btn-box-tool{"data-widget" => "remove", :type => "button"}
+        %i.fa.fa-times
+  / /.box-header
+  .box-body.no-padding
+    =yield

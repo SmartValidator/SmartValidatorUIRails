@@ -1,6 +1,6 @@
 -provide(:subtitle,I18n.t('devise_own.resend_confirmation_email'))
 
-#devise-box.devise-box-center
+#devise-box.devise-box-center.content
   %h2=I18n.t('devise_own.resend_confirmation_email')
   =devise_error_messages!
   = form_for(resource, as: resource_name, url: user_confirmation_path, html: { method: :post }) do |f|

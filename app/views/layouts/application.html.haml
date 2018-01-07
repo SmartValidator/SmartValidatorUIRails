@@ -1,16 +1,63 @@
 !!!
 %html
   %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %title=full_title(yield(:subtitle))
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application', "controllers/#{controller_path.split('/')[0]}"
-    = csrf_meta_tags
-  %body
-    =render 'layouts/components/header'
-    .container.margin-top-2
-      =render 'layouts/components/flash'
-      =yield
-    =render 'layouts/components/js_data'
-    =render 'layouts/components/modal_template'
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
+  %body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      %header.main-header
+        / Logo
+        %a.logo{:href => root_path}
+          / mini logo for sidebar mini 50x50 pixels
+          %span.logo-mini
+            =Rails.configuration.global[:platform][:shortname]
+          / logo for regular state and mobile devices
+          %span.logo-lg
+            %b=Rails.configuration.global[:platform][:name]
+        / Header Navbar: style can be found in header.less
+        %nav.navbar.navbar-static-top
+          / Sidebar toggle button
+          %a.sidebar-toggle{"data-toggle" => "push-menu", :href => "#", :role => "button"}
+            %span.sr-only Toggle navigation
+          .navbar-custom-menu
+            %ul.nav.navbar-nav
+              / User Account: style can be found in dropdown.less
+              %li.dropdown.user.user-menu
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %span.hidden-xs
+                    -if current_user
+                      Logged in as #{current_user.email}
+                    -else
+                      Not logged in
+                %ul.dropdown-menu
+                  / Menu Body
+                  %li.user-body
+                    .row
+                      .col bla
+                    / /.row
+                  / Menu Footer
+                  %li.user-footer
+                    .pull-right
+                      -if current_user
+                        =link_to destroy_user_session_path, :method => 'delete', class: 'btn btn-default btn-flat' do
+                          Sign out
+                      -else
+                        =link_to new_session_path(:user), class: 'btn btn-default btn-flat' do
+                          Sign in
+      / Left side column. contains the logo and sidebar
+      %aside.main-sidebar
+        =render 'layouts/components/header'
+      / Content Wrapper. Contains page content
+      .content-wrapper.padding-top-1
+        =render 'layouts/components/flash'
+        =yield
+
+
+  =render 'layouts/components/js_data'
+  =render 'layouts/components/modal_template'

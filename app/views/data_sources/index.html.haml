@@ -1,7 +1,7 @@
 -provide(:subtitle,I18n.t('views.data_sources.index.title'))
 
 #data_sources_index
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.data_sources.index.title')
@@ -14,7 +14,7 @@
           %br
           %a{href: data_sources_path}
             =I18n.t('views.data_sources.index.remove_filter')
-  %section
+  %section.content
     .row
       .col-12.col-lg-3.margin-bottom-2
         #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}

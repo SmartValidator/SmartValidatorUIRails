@@ -6,4 +6,5 @@
 //= require datatables.min
 //= require chosen.jquery.min
 //= require Chart.bundle.min
+//= require adminlte.min
 //= require global.js

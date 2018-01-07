@@ -1,11 +1,11 @@
 -provide(:subtitle,I18n.t('views.payload_roas.index.title'))
 
 #payload_roas_index
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.payload_roas.index.title')
-  %section
+  %section.content
     .row
       .col.text-right
         %table#payload-roas.table.table-striped{'data-source': smart_validator_db_payload_roas_path(format: :json)}

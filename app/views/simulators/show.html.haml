@@ -1,11 +1,11 @@
 -provide(:subtitle,I18n.t('views.simulators.show.title'))
 
 #simulators_index
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.simulators.show.title')
-  %section
+  %section.content
     .row
       .col
         %table#watched-announcements.table.table-striped{'data-source': smart_validator_db_watched_announcements_path(format: :json)}

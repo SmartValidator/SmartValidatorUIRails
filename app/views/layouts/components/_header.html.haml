@@ -1,37 +1,43 @@
-%nav.navbar.navbar-expand-lg.navbar-light
-  %a.navbar-brand{:href => "/"}=Rails.configuration.global[:platform][:name]
-  %button.navbar-toggler{"aria-controls" => "navbarTogglerDemo02", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarTogglerDemo02", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarTogglerDemo02.collapse.navbar-collapse.pull-right
-    -if current_user
-      %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
-        %li.nav-item
-          %a.nav-link{:href => simulator_path}
+%section.sidebar
+  %ul.sidebar-menu{"data-widget" => "tree"}
+    %li
+      %a{:href => root_path}
+        %i.fa.fa-book
+        %span Dashboard
+    %li.active.treeview
+      %a{:href => "#"}
+        %i.fa.fa-dashboard
+        %span Simulator
+        %span.pull-right-container
+          %i.fa.fa-angle-left.pull-right
+      %ul.treeview-menu
+        %li.active
+          %a{:href => simulator_path}
+            %i.fa.fa-circle-o.text-red
             =I18n.t('views.simulators.show.title')
-        %li.nav-item
-          %a.nav-link{:href => self_overview_path}
+        %li
+          %a{:href => self_overview_path}
+            %i.fa.fa-circle-o.text-yellow
             =I18n.t('views.self_overview.show.title')
-        %li.nav-item
-          %a.nav-link{:href => conflicts_path}
+        %li
+          %a{:href => conflicts_path}
+            %i.fa.fa-circle-o
             =I18n.t('views.conflicts.index.title')
-        %li.nav-item
-          %a.nav-link{:href => data_sources_path}
-            =I18n.t('views.data_sources.index.title')
-        %li.nav-item
-          %a.nav-link{:href => router_status_path}
-            =I18n.t('views.router_statuses.show.title')
-        %li.nav-item
-          %a.nav-link{:href => payload_roas_path}
+        %li
+          %a{:href => payload_roas_path}
+            %i.fa.fa-circle-o.text-aqua
             =I18n.t('views.payload_roas.index.title')
-      %ul.navbar-nav
-        %li.nav-item
-          %a.nav-link{:href => settings_path}
-            =I18n.t('views.settings.index.title')
-        %li.nav-item
-          =link_to I18n.t('general.logout'), destroy_user_session_path, :method => 'delete', class: 'nav-link'
-    -else
-      %ul.navbar-nav.ml-auto
-        %li.nav-item
-          %a.nav-link{:href => new_session_path(:user)}
-            =I18n.t('general.login')
-
+    %li.header DETAILS
+    %li
+      %a{:href => data_sources_path}
+        %i.fa.fa-book
+        %span=I18n.t('views.data_sources.index.title')
+    %li
+      %a{:href => router_status_path}
+        %i.fa.fa-book
+        %span=I18n.t('views.router_statuses.show.title')
+    %li.header SETTINGS
+    %li
+      %a{:href => settings_path}
+        %i.fa.fa-book
+        %span=I18n.t('views.settings.index.title')

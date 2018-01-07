@@ -1,11 +1,11 @@
 -provide(:subtitle,I18n.t('views.settings.index.title'))
 
 #settings_index{'data-set-key-path' => set_settings_key_path}
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.settings.index.title')
-  %section
+  %section.content
     .row
       .col-12.col-lg-3.margin-bottom-2
         #v-pills-tab.nav.flex-column.nav-pills{"aria-orientation" => "vertical", :role => "tablist"}

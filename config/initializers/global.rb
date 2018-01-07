@@ -1,6 +1,7 @@
 Rails.configuration.global = {
   platform: {
-    name: 'SmartValidatorUI',
+    name: 'SmartValidator',
+    shortname: 'SV'
   },
   pages: {
     index: {

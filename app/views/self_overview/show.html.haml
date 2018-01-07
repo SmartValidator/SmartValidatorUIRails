@@ -1,7 +1,7 @@
 -provide(:subtitle,I18n.t('views.self_overview.show.title'))
 
 #self_overview_index
-  %section
+  %section.content-header
     .row
       .col
         %h1=I18n.t('views.self_overview.show.title')
@@ -9,7 +9,7 @@
     .col.text-right.margin-bottom-2
       %button#add-watched-prefix-button.btn.btn-primary{'data-new-path' => new_watched_prefix_path, 'data-create-path' => watched_prefixes_path, 'data-modal-title' => I18n.t('views.self_overview.show.add_prefix'), 'data-modal-success' => I18n.t('views.self_overview.show.success')}
         =I18n.t('views.self_overview.show.add_prefix')
-  %section
+  %section.content
     .row
       .col
         %table#user-announcements.table.table-striped{'data-source': smart_validator_db_user_announcements_path(format: :json)}
