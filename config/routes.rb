@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
   namespace 'smart_validator_db' do
     resources :announcements, only: [:index]
-    resources :custom_announcements, only: [:index]
     resources :watched_announcements, only: [:index]
     resources :user_announcements, only: [:index]
     resources :validated_roas, only: [:index]
