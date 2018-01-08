@@ -2,7 +2,7 @@ en:
   views:
     pages:
       index:
-        title: 'Welcome to the SmartValidator UI'
+        title: 'Welcome to the %{platform}'
         graphs:
           bgp_status:
             unknown_count: 'Unknown'
