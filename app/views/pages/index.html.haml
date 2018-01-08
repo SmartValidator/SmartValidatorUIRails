@@ -17,7 +17,7 @@
           .col
             %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
     %section.content
-      =render 'shared/white_box', title: 'Conflicts' do
+      =render 'shared/white_box', title: 'Conflict detection timeline' do
         .row
           .col
             %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
