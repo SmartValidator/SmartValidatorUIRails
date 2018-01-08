@@ -7,8 +7,7 @@ class SmartValidatorDb::RtrStatusEntryDatatable < AjaxDatatablesRails::Base
     @view_columns ||= {
       id: {source: "SmartValidatorDb::RtrStatusEntry.id", cond: :eq},
       router: {source: "SmartValidatorDb::RtrStatusEntry.router", cond: :like},
-      start_time: {source: "SmartValidatorDb::RtrStatusEntry.start_time", cond: :like},
-      end_time: {source: "SmartValidatorDb::RtrStatusEntry.end_time", cond: :like},
+      created_at: {source: "SmartValidatorDb::RtrStatusEntry.created_at", cond: :like},
       state: {source: "SmartValidatorDb::RtrStatusEntry.state", cond: :like}
     }
   end
@@ -18,8 +17,7 @@ class SmartValidatorDb::RtrStatusEntryDatatable < AjaxDatatablesRails::Base
       {
         id: record.id,
         router: record.router,
-        start_time: record.start_time.strftime("%Y-%m-%d, %H:%M"),
-        end_time: record.end_time.strftime("%Y-%m-%d, %H:%M"),
+        created_at: record.created_at.strftime("%Y-%m-%d %H:%M"),
         state: I18n.t("activerecord.meta.smart_validator_db.rtr_status_entries.state.#{record.state}")
       }
     end

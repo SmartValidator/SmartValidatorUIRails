@@ -3,3 +3,6 @@ en:
     router_statuses:
       show:
         title: 'Router status'
+        current_logs: 'Current'
+        all_logs: 'History'
+        created_at: 'Timestamp'

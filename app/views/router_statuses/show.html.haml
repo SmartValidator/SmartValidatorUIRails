@@ -8,13 +8,33 @@
   %section.content
     .row
       .col
-        %table#rtr-status-entries.table.table-striped{'data-source': smart_validator_db_rtr_status_entries_path(format: :json) }
-          %thead
-            %tr
-              %th=I18n.t('general.id')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.router')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.start_time')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.end_time')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.state')
-          %tbody
-
+        %ul#router-status-tab.nav.nav-tabs{:role => "tablist"}
+          %li.nav-item
+            %a#current-tab.nav-link.active{"aria-controls" => "current", "aria-selected" => "true", "data-toggle" => "tab", :href => "#current", :role => "tab"}
+              =I18n.t('views.router_statuses.show.current_logs')
+          %li.nav-item
+            %a#all-tab.nav-link{"aria-controls" => "all", "aria-selected" => "false", "data-toggle" => "tab", :href => "#all", :role => "tab"}
+              =I18n.t('views.router_statuses.show.all_logs')
+        #router-status-tabContent.tab-content
+          #current.tab-pane.fade.show.active{"aria-labelledby" => "current-tab", :role => "tabpanel"}
+            %table#rtr-current-status-entries.table.table-striped
+              %thead
+                %tr
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.router')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.state')
+                  %th=I18n.t('views.router_statuses.show.created_at')
+              %tbody
+                -@current_router_state.each do |router_status_hash|
+                  %tr
+                    %td=router_status_hash[:router]
+                    %td=router_status_hash[:state]
+                    %td=router_status_hash[:created_at].strftime("%Y-%m-%d %H:%M")
+          #all.tab-pane.fade{"aria-labelledby" => "all-tab", :role => "tabpanel"}
+            %table#rtr-status-entries.table.table-striped{'data-source': smart_validator_db_rtr_status_entries_path(format: :json) }
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.router')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.created_at')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.rtr_status_entries.state')
+              %tbody
