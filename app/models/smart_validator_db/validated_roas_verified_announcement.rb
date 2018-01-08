@@ -11,12 +11,18 @@ class SmartValidatorDb::ValidatedRoasVerifiedAnnouncement < ActiveRecord::Base
              class_name: 'SmartValidatorDb::ValidatedRoa',
              foreign_key: :validated_roa_id
 
-  scope :valid, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:is_valid])}
-  scope :invalid_asn, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_asn])}
-  scope :invalid_length, proc {where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_length])}
-  scope :invalid, proc { invalid_asn.or(invalid_length) }
+  scope :valid, proc {
+    select('MIN(route_vsalidity)').where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:is_valid]).group_by(:announcement_id)
+  }
+  scope :invalid_asn, proc {
+    where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_asn]).group_by(:announcement_id)
+  }
+  scope :invalid_length, proc {
+    where(route_validity: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities[:invalid_length]).group_by(:announcement_id)
+  }
+  scope :invalid, proc {invalid_asn.or(invalid_length)}
   scope :unknown, proc {
-    not("route_validity = ANY(ARRAY[#{SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities.map {|e| e[1]}}])")
+    not ("route_validity = ANY(ARRAY[#{SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.route_validities.map {|e| e[1]}}])")
   }
 
   enum route_validity: [
