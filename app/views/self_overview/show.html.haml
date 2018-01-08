@@ -15,10 +15,10 @@
         %ul#router-status-tab.nav.nav-tabs{:role => "tablist"}
           %li.nav-item
             %a#prefixes-tab.nav-link.active{"aria-controls" => "prefixes", "aria-selected" => "true", "data-toggle" => "tab", :href => "#prefixes", :role => "tab"}
-              Prefixes table
+              Watched prefixes
           %li.nav-item
             %a#announcements-tab.nav-link{"aria-controls" => "announcements", "aria-selected" => "false", "data-toggle" => "tab", :href => "#announcements", :role => "tab"}
-              Announcements table
+              Simulation results
         #router-status-tabContent.tab-content
           #prefixes.tab-pane.fade.show.active{"aria-labelledby" => "prefixes-tab", :role => "tabpanel"}
             %table#watched-prefixes.table.table-striped{'data-source': smart_validator_db_watched_prefixes_path(format: :json)}
