@@ -2,7 +2,7 @@
   %ul.sidebar-menu{"data-widget" => "tree"}
     %li
       %a{:href => root_path}
-        %i.fa.fa-book
+        %i.fa.fa-line-chart
         %span Dashboard
     %li.active.treeview
       %a{:href => "#"}
@@ -21,7 +21,7 @@
             =I18n.t('views.self_overview.show.title')
         %li
           %a{:href => conflicts_path}
-            %i.fa.fa-circle-o
+            %i.fa.fa-circle-o.text-green
             =I18n.t('views.conflicts.index.title')
         %li
           %a{:href => payload_roas_path}
@@ -30,14 +30,14 @@
     %li.header DETAILS
     %li
       %a{:href => data_sources_path}
-        %i.fa.fa-book
+        %i.fa.fa-database
         %span=I18n.t('views.data_sources.index.title')
     %li
       %a{:href => router_status_path}
-        %i.fa.fa-book
+        %i.fa.fa-signal
         %span=I18n.t('views.router_statuses.show.title')
     %li.header SETTINGS
     %li
       %a{:href => settings_path}
-        %i.fa.fa-book
+        %i.fa.fa-cog
         %span=I18n.t('views.settings.index.title')

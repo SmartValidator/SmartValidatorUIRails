@@ -2,6 +2,6 @@ en:
   views:
     self_overview:
       show:
-        title: 'Self overview'
+        title: 'Own network status'
         add_prefix: 'Add watched prefix'
         success: 'Own prefix addded'
