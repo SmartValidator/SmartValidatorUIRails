@@ -17,7 +17,7 @@ class SmartValidatorDb::WatchedAnnouncementDatatable < AjaxDatatablesRails::Base
         id: record.id,
         asn: record.asn,
         prefix: link_to(ipaddr_with_cidr(record.prefix), data_sources_path(prefix: ipaddr_with_cidr(record.prefix))),
-        blocking_status: I18n.t("activerecord.meta.smart_validator_db.watched_announcement.blocking_status.#{record.blocking_status}"),
+        blocking_status: I18n.t("activerecord.meta.smart_validator_db.watched_announcement.blocking_status.#{record.blocking_state}"),
       }
     end
   end
