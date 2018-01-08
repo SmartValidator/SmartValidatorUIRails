@@ -8,7 +8,7 @@
   %section.content
     .row
       .col
-        %table#watched-announcements.table.table-striped{'data-source': smart_validator_db_watched_announcements_path(format: :json)}
+        %table#user-announcements.table.table-striped{'data-source': smart_validator_db_user_announcements_path(format: :json)}
           %thead
             %tr
               %th=I18n.t('general.id')

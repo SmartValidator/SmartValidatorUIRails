@@ -4,29 +4,22 @@
       %a{:href => root_path}
         %i.fa.fa-line-chart
         %span Dashboard
-    %li.active.treeview
-      %a{:href => "#"}
-        %i.fa.fa-dashboard
-        %span Simulator
-        %span.pull-right-container
-          %i.fa.fa-angle-left.pull-right
-      %ul.treeview-menu
-        %li.active
-          %a{:href => simulator_path}
-            %i.fa.fa-circle-o.text-red
-            Overview
-        %li
-          %a{:href => self_overview_path}
-            %i.fa.fa-circle-o.text-yellow
-            =I18n.t('views.self_overview.show.title')
-        %li
-          %a{:href => conflicts_path}
-            %i.fa.fa-circle-o.text-green
-            =I18n.t('views.conflicts.index.title')
-        %li
-          %a{:href => payload_roas_path}
-            %i.fa.fa-circle-o.text-aqua
-            =I18n.t('views.payload_roas.index.title')
+    %li
+      %a{:href => self_overview_path}
+        %i.fa.fa-circle-o.text-red
+        =I18n.t('views.self_overview.show.title')
+    %li
+      %a{:href => simulator_path}
+        %i.fa.fa-circle-o.text-yellow
+        =I18n.t('views.simulators.show.title')
+    %li
+      %a{:href => conflicts_path}
+        %i.fa.fa-circle-o.text-green
+        =I18n.t('views.conflicts.index.title')
+    %li
+      %a{:href => payload_roas_path}
+        %i.fa.fa-circle-o.text-aqua
+        =I18n.t('views.payload_roas.index.title')
     %li.header DETAILS
     %li
       %a{:href => data_sources_path}

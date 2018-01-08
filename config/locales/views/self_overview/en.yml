@@ -2,6 +2,6 @@ en:
   views:
     self_overview:
       show:
-        title: 'Own network status'
+        title: 'Simulator'
         add_prefix: 'Add watched prefix'
         success: 'Own prefix addded'

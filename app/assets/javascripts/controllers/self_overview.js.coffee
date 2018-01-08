@@ -1,7 +1,7 @@
 root = exports ? this
 
 $ ->
-  root.abstract_announcements_table('#user-announcements')
+  root.abstract_announcements_table('#watched-announcements')
   $('#add-watched-prefix-button').on 'click', () ->
     return new_watched_prefix()
 

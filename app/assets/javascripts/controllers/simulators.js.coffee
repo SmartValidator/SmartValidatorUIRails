@@ -1,4 +1,4 @@
 root = exports ? this
 
 $ ->
-  root.abstract_announcements_table('#watched-announcements')
+  root.abstract_announcements_table('#user-announcements')
