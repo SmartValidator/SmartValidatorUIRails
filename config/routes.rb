@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :payload_roas, only: [:index]
     resources :validated_roas_verified_announcements, only: [:index]
     resources :rtr_status_entries, only: [:index]
-    resources :watched_prefixes, only: [:create]
+    resources :watched_prefixes, only: [:index, :create]
   end
 
 end

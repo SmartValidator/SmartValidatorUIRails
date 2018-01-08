@@ -1,0 +1,14 @@
+---
+en:
+  activerecord:
+    attributes:
+      smart_validator_db:
+        as_ranking:
+            country: 'Country'
+            asn: 'ASN'
+            rank: 'Rank'
+    models:
+      smart_validator_db:
+        as_ranking:
+          one: 'AS ranking'
+          other: 'AS ranking'

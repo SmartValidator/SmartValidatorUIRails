@@ -6,6 +6,7 @@ class DataSourcesController < ApplicationController
   def index
     authorize self
     parse_parameters
+    @as_ranking = SmartValidatorDb::AsRanking.all
   end
 
   private

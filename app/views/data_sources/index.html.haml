@@ -26,9 +26,15 @@
             =I18n.t('activerecord.models.smart_validator_db.validated_roa.other')
             %span#roas-count.badge.badge-secondary
             %span.key-hint 2
+          %a#v-pills-asr-tab.nav-link{"aria-controls" => "v-pills-asr", "aria-selected" => "false", "data-toggle" => "pill", :href => "#v-pills-asr", :role => "tab", :accesskey => '3'}
+            =I18n.t('activerecord.models.smart_validator_db.as_ranking.other')
+            %span#asr-count.badge.badge-secondary
+            %span.key-hint 3
       .col-12.col-lg-9
         #v-pills-tabContent.tab-content
           #v-pills-announcements.tab-pane.fade.show.active{"aria-labelledby" => "v-pills-announcements-tab", :role => "tabpanel"}
             =render 'shared/announcements_table', id: 'announcements-table', source: smart_validator_db_announcements_path(format: :json)
           #v-pills-roas.tab-pane.fade{"aria-labelledby" => "v-pills-roas-tab", :role => "tabpanel"}
             =render 'shared/validated_roas_table', id: 'validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json)
+          #v-pills-asr.tab-pane.fade{"aria-labelledby" => "v-pills-asr-tab", :role => "tabpanel"}
+            =render 'data_sources/index/as_ranking'

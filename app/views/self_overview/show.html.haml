@@ -5,20 +5,34 @@
     .row
       .col
         %h1=I18n.t('views.self_overview.show.title')
-  .row
-    .col.text-right.margin-bottom-2
-      %button#add-watched-prefix-button.btn.btn-primary{'data-new-path' => new_watched_prefix_path, 'data-create-path' => watched_prefixes_path, 'data-modal-title' => I18n.t('views.self_overview.show.add_prefix'), 'data-modal-success' => I18n.t('views.self_overview.show.success')}
-        =I18n.t('views.self_overview.show.add_prefix')
+    .row
+      .col.text-right.margin-bottom-2
+        %button#add-watched-prefix-button.btn.btn-primary{'data-new-path' => new_watched_prefix_path, 'data-create-path' => watched_prefixes_path, 'data-modal-title' => I18n.t('views.self_overview.show.add_prefix'), 'data-modal-success' => I18n.t('views.self_overview.show.success')}
+          =I18n.t('views.self_overview.show.add_prefix')
   %section.content
     .row
       .col
-        %table#watched-announcements.table.table-striped{'data-source': smart_validator_db_watched_announcements_path(format: :json)}
-          %thead
-            %tr
-              %th=I18n.t('general.id')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
-              %th=I18n.t('activerecord.attributes.smart_validator_db.user_announcement.blocking_status')
-          %tbody
-
-
+        %ul#router-status-tab.nav.nav-tabs{:role => "tablist"}
+          %li.nav-item
+            %a#prefixes-tab.nav-link.active{"aria-controls" => "prefixes", "aria-selected" => "true", "data-toggle" => "tab", :href => "#prefixes", :role => "tab"}
+              Prefixes table
+          %li.nav-item
+            %a#announcements-tab.nav-link{"aria-controls" => "announcements", "aria-selected" => "false", "data-toggle" => "tab", :href => "#announcements", :role => "tab"}
+              Announcements table
+        #router-status-tabContent.tab-content
+          #prefixes.tab-pane.fade.show.active{"aria-labelledby" => "prefixes-tab", :role => "tabpanel"}
+            %table#watched-prefixes.table.table-striped{'data-source': smart_validator_db_watched_prefixes_path(format: :json)}
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+              %tbody
+          #announcements.tab-pane.fade{"aria-labelledby" => "announcements-tab", :role => "tabpanel"}
+            %table#watched-announcements.table.table-striped{'data-source': smart_validator_db_watched_announcements_path(format: :json)}
+              %thead
+                %tr
+                  %th=I18n.t('general.id')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.asn')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.announcement.prefix')
+                  %th=I18n.t('activerecord.attributes.smart_validator_db.user_announcement.blocking_status')
+              %tbody

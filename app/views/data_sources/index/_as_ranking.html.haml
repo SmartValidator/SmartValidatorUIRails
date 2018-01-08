@@ -1,0 +1,15 @@
+%section
+  .row
+    .col
+      %table#as-ranking.table.table-striped.data-table
+        %thead
+          %tr
+            %th=I18n.t('activerecord.attributes.smart_validator_db.as_ranking.rank')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.as_ranking.country')
+            %th=I18n.t('activerecord.attributes.smart_validator_db.as_ranking.asn')
+        %tbody
+          -@as_ranking.all.each do |as_ranking|
+            %tr
+              %td=as_ranking.rank
+              %td=as_ranking.country
+              %td=as_ranking.asn

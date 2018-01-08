@@ -8,8 +8,13 @@ class SmartValidatorDb::WatchedPrefixesControllerPolicy
     @record = record
   end
 
-  def create?
+  def index?
     @user != nil
   end
+
+  def create?
+    index?
+  end
+
 
 end

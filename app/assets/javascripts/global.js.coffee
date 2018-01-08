@@ -124,7 +124,6 @@ root.reset_modal_window = () ->
   $('#modal-template .btn.cancel').show().html($('#js-data').data('cancel'))
   return
 
-
 # Handles an error result from the controller.
 root.handle_modal_error = (xhr) ->
   response = $.parseJSON(xhr['responseText'])
@@ -140,4 +139,22 @@ root.handle_modal_error = (xhr) ->
 # Formats a number for pretty printing.
 root.format_number = (n) ->
   return n
+
+root.load_prefix_table = (obj) ->
+  obj.on('xhr.dt', (e, settings, json, xhr) ->
+    if xhr.status != 200
+      location.href = $('#js-data').data('login-path')
+      $(this).stopPropagation()
+      return false
+    return true
+  ).dataTable(
+    processing: true
+    serverSide: true
+    ajax: obj.data('source')
+    pagingType: 'full_numbers'
+    columns: [
+      {data: 'id'}
+      {data: 'prefix'}
+    ]
+  ).css('width', '100%') # The table don't get the proper width if its rendered in a hidden container. Therefore, we have to set this after the initialization.
 
