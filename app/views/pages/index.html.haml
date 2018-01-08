@@ -7,23 +7,25 @@
         %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
   -if current_user
     %section.content
-      =render 'shared/white_box', title: 'Conflicts' do
-        .row
-          .col
-            %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
-    %section.content
-      =render 'shared/white_box', title: 'General BGP announcements status' do
-        .row
-          .col
-            %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
-    %section.content
-      =render 'shared/white_box', title: 'Conflict detection timeline' do
-        .row
-          .col
-            %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
-    %section.content
-      =render 'shared/white_box', title: 'Current route original authorization certificate' do
-        .row
-          .col
-            %canvas#payload-roas-chart{'data-load-path' => payload_roas_graph_path(format: :json)}
+      .row
+        .col-12.col-lg-6
+          =render 'shared/white_box', title: 'Conflicts' do
+            .row
+              .col
+                %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
+        .col-12.col-lg-6
+          =render 'shared/white_box', title: 'General BGP announcements status' do
+            .row
+              .col
+                %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}
+        .col-12.col-lg-6
+          =render 'shared/white_box', title: 'Conflict detection timeline' do
+            .row
+              .col
+                %canvas#timeline-conflicts-chart{'data-load-path' => timeline_conflicts_graph_path(format: :json)}
+        .col-12.col-lg-6
+          =render 'shared/white_box', title: 'Current route original authorization certificate' do
+            .row
+              .col
+                %canvas#payload-roas-chart{'data-load-path' => payload_roas_graph_path(format: :json)}
 
