@@ -14,6 +14,10 @@ module GraphsHelper
     { #green
       background_color: '#CEFFE9',
       border_color: '#00a65a'
+    },
+    { #yellow
+      background_color: 'rgba(255, 206, 86, 0.2)',
+      border_color: 'rgba(255, 206, 86, 1)'
     }
   ].freeze
 
@@ -46,14 +50,14 @@ module GraphsHelper
         count: SmartValidatorDb::Announcement.find_by_sql(
           'SELECT COUNT(announcements.*) FROM announcements LEFT JOIN validated_roas_verified_announcements ON (announcements.id = validated_roas_verified_announcements.announcement_id) WHERE validated_roas_verified_announcements.announcement_id IS NULL;'
         ).to_a.first.count,
-        background_color: GRAPH_COLORS[2][:background_color],
-        border_color: GRAPH_COLORS[2][:border_color]
+        background_color: GRAPH_COLORS[3][:background_color],
+        border_color: GRAPH_COLORS[3][:border_color]
       },
       valid_count: {
         label: I18n.t("views.pages.index.graphs.bgp_status.valid_count"),
         count: SmartValidatorDb::ValidatedRoasVerifiedAnnouncement.all.where(route_validity: 0).count,
-        background_color: GRAPH_COLORS[0][:background_color],
-        border_color: GRAPH_COLORS[0][:border_color]
+        background_color: GRAPH_COLORS[2][:background_color],
+        border_color: GRAPH_COLORS[2][:border_color]
       },
       conflict_count: {
         label: I18n.t("views.pages.index.graphs.bgp_status.conflict_count"),
@@ -120,9 +124,9 @@ module GraphsHelper
 
   # Returns the proper color hash for conflict entries.
   def color_hash_for_conflict_entry(conflict_entry)
-    return GRAPH_COLORS[2] if conflict_entry.route_validity.to_sym == :invalid_asn
+    return GRAPH_COLORS[1] if conflict_entry.route_validity.to_sym == :invalid_asn
     return GRAPH_COLORS[1] if conflict_entry.route_validity.to_sym == :invalid_length
-    return GRAPH_COLORS[0]
+    return GRAPH_COLORS[2]
   end
 
   # Returns the proper color hash for conflict entries.

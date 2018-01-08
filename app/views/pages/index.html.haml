@@ -3,8 +3,14 @@
 #pages_index
   %section.content-header
     .row
-      .col
+      .col-6
         %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
+      .col-6.text-right
+        .fa.fa-server
+        %span Router status
+        %br
+        .badge.badge-pill.bg-green 1 online
+        .badge.badge-pill.bg-red 0 offline
   -if current_user
     =render 'pages/index/status_boxes'
     %section.content
