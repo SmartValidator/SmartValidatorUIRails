@@ -6,7 +6,7 @@ Rails.configuration.global = {
   pages: {
     index: {
       timeline_conflicts: {
-        show_last_n_entries: 25
+        show_last_n_entries: 24
       }
     }
   },

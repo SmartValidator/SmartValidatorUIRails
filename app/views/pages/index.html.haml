@@ -6,6 +6,7 @@
       .col
         %h1=I18n.t('views.pages.index.title', platform: Rails.configuration.global[:platform][:name])
   -if current_user
+    =render 'pages/index/status_boxes'
     %section.content
       .row
         .col-12.col-lg-6
@@ -28,4 +29,3 @@
             .row
               .col
                 %canvas#payload-roas-chart{'data-load-path' => payload_roas_graph_path(format: :json)}
-

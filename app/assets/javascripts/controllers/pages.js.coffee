@@ -54,9 +54,6 @@ render_bgp_status_graph = (graph_data) ->
   ctx = document.getElementById('bgp-status-chart').getContext('2d')
   myChart = new Chart(ctx,
     type: 'pie'
-    options:
-      legend:
-        display: false
     data:
       labels: graph_data['labels']
       datasets: [ {
@@ -89,9 +86,6 @@ render_payload_roas_graph = (graph_data) ->
   ctx = document.getElementById('payload-roas-chart').getContext('2d')
   myChart = new Chart(ctx,
     type: 'pie'
-    options:
-      legend:
-        display: false
     data:
       labels: graph_data['labels']
       datasets: [ {

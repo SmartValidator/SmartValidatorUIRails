@@ -1,5 +1,8 @@
 @import "variables";
 
+.content {
+  min-height: auto !important;
+}
 .main-header .logo {
   min-height: 70px;
 }
@@ -16,3 +19,9 @@
 .box.box-info {
   border-top-color: #3c8dbc;
 }
+
+.small-box-footer {
+  text-align: left !important;
+  padding-left: 1em !important;
+}
+
