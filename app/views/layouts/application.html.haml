@@ -39,7 +39,9 @@
                   / Menu Body
                   %li.user-body
                     .row
-                      .col bla
+                      .col.small.text-muted
+                        -if current_user
+                          Last login at #{current_user.last_sign_in_at.strftime("%Y-%m-%d / %H:%M")}
                     / /.row
                   / Menu Footer
                   %li.user-footer
