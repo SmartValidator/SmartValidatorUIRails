@@ -12,7 +12,7 @@
           .col
             %canvas#conflict-status-chart{'data-load-path' => conflict_status_graph_path(format: :json)}
     %section.content
-      =render 'shared/white_box', title: 'BGP status' do
+      =render 'shared/white_box', title: 'General BGP announcements status' do
         .row
           .col
             %canvas#bgp-status-chart{'data-load-path' => bgp_status_graph_path(format: :json)}

@@ -8,7 +8,7 @@
   %section.content
     .row
       .col-12.col-lg-6
-        .row
+        .row.margin-bottom-1
           .col
             %h3=I18n.t('views.conflicts.index.analyzed_conflicts.title')
         .row
@@ -35,12 +35,16 @@
               %tbody
       .col-12.col-lg-6
         %section
-          .row
+          .row.margin-bottom-1
             .col
               %h3=I18n.t('views.conflicts.index.filtered.title')
-              =render 'shared/validated_roas_table', id: 'filtered-validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json, scope: :filtered)
-        %section
           .row
             .col
+              =render 'shared/validated_roas_table', id: 'filtered-validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json, scope: :filtered)
+        %section
+          .row.margin-bottom-1
+            .col
               %h3=I18n.t('views.conflicts.index.whitelisted.title')
+          .row
+            .col
               =render 'shared/validated_roas_table', id: 'whitelisted-validated-roas-table', source: smart_validator_db_validated_roas_path(format: :json, scope: :whitelisted)
